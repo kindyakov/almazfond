@@ -1,0 +1,11 @@
+{
+  "Sprite Icon": {
+    "prefix": "sprite",
+    "body": [
+      "<svg width=\"${1:24}\" height=\"${2:24}\" aria-hidden=\"true\">",
+      "  <use href=\"#${3:icon-id}\"></use>",
+      "</svg>"
+    ],
+    "description": "Insert SVG sprite use tag for project icons"
+  }
+}

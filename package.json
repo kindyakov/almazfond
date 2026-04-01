@@ -1,0 +1,44 @@
+{
+  "name": "him-trejding",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node scripts/start.mjs",
+    "prebuild": "node scripts/clean-dist.mjs",
+    "build:html": "node scripts/build-html.mjs",
+    "build:css": "node scripts/run-parcel.mjs build css",
+    "build:js": "node scripts/run-parcel.mjs build js",
+    "build:assets": "node scripts/copy-assets.mjs",
+    "build:cleanup": "node scripts/clean-empty-dirs.mjs",
+    "build": "npm run build:css && npm run build:js && npm run build:assets && npm run build:html && npm run build:cleanup",
+    "build:pages": "node scripts/build-pages.mjs",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "posthtml": "^0.16.7",
+    "posthtml-include": "^2.0.1",
+    "prettier": "^3.8.1"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**/*"
+  },
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "a11y-dialog": "^8.1.5",
+    "aos": "^2.3.4",
+    "imask": "^7.6.1",
+    "just-validate": "^4.3.0",
+    "notyf": "^3.10.0",
+    "swiper": "^12.1.2",
+    "three": "^0.183.2"
+  }
+}

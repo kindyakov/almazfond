@@ -1,0 +1,17 @@
+:root {
+  --brand-id-black: #0e0e0f;
+  --brand-id-black-secondary: #1f1f21;
+  --brand-id-white: #fffef7;
+  --brand-id-white-muted: #e7e4de;
+  --brand-id-white-tertiary: #b9b4a8;
+  --brand-id-white-stroke: rgba(232, 225, 214, 0.4);
+  --brand-id-gray-stroke: #bfbeb6;
+  --brand-id-gold: #c6a46c;
+  --brand-id-gold-dark: #ad8d58;
+  --brand-id-pink: #c61954;
+  --container-width: 1320px;
+  --font-family: "Inter", sans-serif;
+  --second-family: "Cormorant Garamond", sans-serif;
+  --third-family: "Open Sans", sans-serif;
+  --font3: "Wix Madefor Display", sans-serif;
+}
