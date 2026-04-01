@@ -1,0 +1,133 @@
+.hero {
+  min-height: 620px;
+  padding-block: 32px;
+  display: flex;
+  position: relative;
+  background: url('../../images/hero-bg.png') no-repeat top / contain;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #000000 10%, #0e0e0f 100%);
+    z-index: -1;
+  }
+
+  @media (max-width: 1440px) {
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 480px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 0;
+    background: url('../../images/hero-bg-mobile.png') no-repeat top / contain;
+  }
+}
+
+.hero__container {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__heading {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 480px) {
+    align-items: flex-start;
+    margin-top: 180px;
+  }
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 80%;
+  text-transform: uppercase;
+  color: #e7e4de;
+  text-align: center;
+
+  span:last-child {
+    color: #c6a46c;
+  }
+
+
+  @media (max-width: 1024px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 48;
+  }
+
+  @media (min-width: 640px) {
+    span {
+      &:first-child {
+        margin-right: auto;
+      }
+
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    font-size: 38px;
+  }
+
+  @media (max-width: 480px) {
+    text-align: left;
+    font-size: 32px;
+    gap: 0;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 28px;
+  }
+}
+
+.hero__description {
+  font-size: 16px;
+  line-height: 140%;
+  color: #b9b4a8;
+  font-weight: 400;
+
+  @media (min-width: 1320px) {
+    top: 15px;
+    right: 0;
+    position: absolute;
+  }
+
+  @media (max-width: 1320px) {
+    margin-inline: auto;
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    margin-inline: inherit;
+  }
+}
+
+.hero__cta {
+  max-width: 424px;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    max-width: none;
+  }
+}

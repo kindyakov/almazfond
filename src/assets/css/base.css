@@ -69,10 +69,17 @@ h6 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .main {
   flex: auto;
+  transition: transform 0.4s ease;
+
+  &.is-open-menu {
+    transition-delay: 0.1s;
+    transform: translateX(-100%);
+  }
 }
 
 .container {
@@ -120,5 +127,29 @@ h6 {
   &:hover {
     color: #c6a46c;
     background: transparent;
+  }
+}
+
+.button-transparent {
+  background: transparent;
+  border: 1px solid #c6a46c;
+  color: #c6a46c;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #c6a46c;
+  transition: 0.3s ease;
+  padding: 10px 20px;
+  height: 56px;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: #0e0e0f;
+    background: #c6a46c;
   }
 }

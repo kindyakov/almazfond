@@ -9,11 +9,13 @@ export function initHeader() {
   }
 
   const body = document.body;
+  const main = document.querySelector('.main');
   const menuToggle = header.querySelector('[data-header-menu-toggle]');
   const menuPanel = document.querySelector('[data-header-menu-panel]');
 
   const closeMenu = () => {
     body.classList.remove(MENU_OPEN_CLASS);
+    main.classList.remove(MENU_OPEN_CLASS);
     header.classList.remove('header--menu-open');
     menuPanel.classList.remove('active');
     menuPanel.setAttribute('aria-hidden', 'true');
@@ -25,6 +27,7 @@ export function initHeader() {
   const openMenu = () => {
     closeSearch();
     body.classList.add(MENU_OPEN_CLASS);
+    main.classList.add(MENU_OPEN_CLASS);
     header.classList.add('header--menu-open');
     menuPanel.classList.add('active');
     menuPanel.setAttribute('aria-hidden', 'false');
