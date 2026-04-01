@@ -63,6 +63,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  padding: 0;
 }
 
 .page {
@@ -152,5 +153,27 @@ h6 {
   &:hover {
     color: #0e0e0f;
     background: #c6a46c;
+  }
+}
+
+.title-h2 {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: #e7e4de;
+
+  span {
+    color: #c6a46c;
+  }
+
+  @media (max-width: 920px) {
+    font-size: 42px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 32px;
   }
 }

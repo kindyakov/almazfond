@@ -1,0 +1,135 @@
+.special-offer {
+  padding-top: 80px;
+  background: #0e0e0f;
+}
+
+.special-offer__container {
+  height: 960px;
+  background: url('../../images/special-offer-bg.png') no-repeat center / cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1200px) {
+    height: 800px;
+  }
+
+  @media (max-width: 920px) {
+    height: auto;
+  }
+
+  @media (max-width: 480px) {
+    background: url('../../images/special-offer-bg-mobile.png') no-repeat top / contain;
+  }
+}
+
+.special-offer__title {
+  span {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
+}
+
+.special-offer__list {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+
+  @media (max-width: 920px) {
+    margin-top: 160px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 220px;
+  }
+}
+
+.special-offer__item {
+
+  background: #1f1f21;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+
+  @media (min-width: 920px) {
+    position: absolute;
+    max-width: 312px;
+
+    &:nth-child(1) {
+      top: 60px;
+      right: 17%;
+    }
+
+    &:nth-child(2) {
+      top: 300px;
+      right: 4%;
+    }
+
+    &:nth-child(3) {
+      top: 560px;
+      left: 9%;
+
+      @media (max-width: 1200px) {
+        top: 400px;
+      }
+    }
+
+    &:nth-child(4) {
+      bottom: 40px;
+      right: 9%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.special-offer__item--img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.special-offer__item--title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #e7e4de;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}

@@ -1,4 +1,12 @@
 @import './variable.css';
 @import './base.css';
+
+@import '../../../node_modules/swiper/swiper-bundle.min.css';
+
 @import './sections/header.css';
 @import './sections/hero.css';
+@import './sections/features.css';
+@import './sections/gift.css';
+@import './sections/hits.css';
+@import './sections/special-offer.css';
+@import './sections/gift-help.css';
