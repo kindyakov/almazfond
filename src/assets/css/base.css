@@ -177,3 +177,74 @@ h6 {
     font-size: 32px;
   }
 }
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  background: #1f1f21;
+  padding: 20px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #b9b4a8;
+  width: 100%;
+
+  &:focus {
+    outline: 1px solid var(--brand-id-gold);
+  }
+}
+
+.checkbox-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.input-checkbox {
+  display: none;
+}
+
+.input-checkbox:checked+.checkbox {
+  border-color: #8c6b3e;
+
+  svg {
+    opacity: 1;
+  }
+}
+
+.checkbox {
+  border: 1px solid #1f1f21;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8c6b3e;
+  outline: none;
+
+  svg {
+    opacity: 0;
+  }
+}
+
+.checkbox-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: #1f1f21;
+
+  a {
+    color: #8c6b3e;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

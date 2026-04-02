@@ -1,0 +1,119 @@
+.exclusive {
+  padding-top: 100px;
+
+  @media (max-width: 768px) {
+    padding-top: 80px;
+  }
+}
+
+/* .exclusive__container {} */
+
+.exclusive__title {
+  text-align: center;
+}
+
+.exclusive__sub-title {
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: #b9b4a8;
+}
+
+.exclusive__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 40px;
+  gap: 24px;
+
+  @media (max-width: 920px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.exclusive__card {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 920px) {
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+
+      .exclusive__card-img {
+        border-radius: 200px 200px 0 0;
+      }
+
+      .exclusive__card-content {
+        border-radius: 0 0 200px 200px;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+.exclusive__card-img {
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 200px 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    height: 240px;
+  }
+}
+
+.exclusive__card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px;
+  border: 1px solid rgba(232, 225, 214, 0.4);
+  border-radius: 200px 200px 0 0;
+  min-height: 215px;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    min-height: 170px;
+    padding-bottom: 20px;
+  }
+}
+
+.exclusive__card-title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: #e7e4de;
+  max-width: 310px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.exclusive__card-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: #b9b4a8;
+  max-width: 310px;
+}
