@@ -10,15 +10,15 @@
           Который навсегда запомнится получателю.
         </p>
 
-        <form class="gift-help__form">
+        <form class="gift-help__form" data-request-form>
           <div class="gift-help__input-wrapper input-wrapper">
-            <input class="gift-help__input input" type="text" placeholder="Ваше имя">
+            <input class="gift-help__input input" type="text" name="name" placeholder="Ваше имя">
           </div>
           <div class="gift-help__input-wrapper input-wrapper">
-            <input class="gift-help__input input" type="text" placeholder="Ваш телефон" inputmode="tel">
+            <input class="gift-help__input input" type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel">
           </div>
           <div class="gift-help__checkbox-wrapper checkbox-wrapper">
-            <input class="gift-help__input-checkbox input-checkbox" type="checkbox" id="gift-help-checkbox">
+            <input class="gift-help__input-checkbox input-checkbox" type="checkbox" id="gift-help-checkbox" name="policy">
             <label for="gift-help-checkbox" class="checkbox">
               <svg width="15" height="10" aria-hidden="true">
                 <use href="#icon-check"></use>

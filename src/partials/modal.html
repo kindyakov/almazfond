@@ -1,0 +1,79 @@
+<div class="modal" id="help-modal" aria-hidden="true" data-modal-dialog>
+  <div class="modal__backdrop" tabindex="-1" data-a11y-dialog-hide></div>
+
+  <div class="modal__container" role="document">
+    <div class="modal__inner">
+      <div class="modal__panel">
+        <div class="modal__top">
+          <h2 class="modal__title" data-modal-title>
+            <span data-modal-title-line="1">Профессиональная</span>
+            <span data-modal-title-line="2">помощь в выборе</span>
+          </h2>
+          <p class="modal__text" data-modal-text>
+            Оставьте заявку. <b>Консультация и подбор</b> под конкретный запрос.
+          </p>
+        </div>
+
+        <form class="modal__form" data-request-form>
+          <div class="modal__input-wrapper input-wrapper">
+            <input class="modal__input input" type="text" name="name" placeholder="Ваше имя">
+          </div>
+
+          <div class="modal__input-wrapper input-wrapper">
+            <input class="modal__input input" type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel">
+          </div>
+
+          <div class="modal__checkbox-row checkbox-wrapper">
+            <input class="modal__input-checkbox input-checkbox" type="checkbox" id="modal-checkbox" name="policy">
+            <label for="modal-checkbox" class="checkbox">
+              <svg width="15" height="10" aria-hidden="true">
+                <use href="#icon-check"></use>
+              </svg>
+            </label>
+            <p class="modal__checkbox-text checkbox-text">
+              Я соглашаюсь с <a href="">политикой конфиденциальности</a> <br> и <a href="">обработкой персональных
+                данных</a>
+            </p>
+          </div>
+
+          <button type="submit" class="modal__submit button" data-modal-submit>Подобрать изделие</button>
+        </form>
+      </div>
+
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно" data-a11y-dialog-hide>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.31955e-05 17.3077L17.3077 4.02664e-06L18 0.692312L0.692378 18L7.31955e-05 17.3077Z"
+            fill="currentColor" />
+          <path d="M0.692304 0L17.9999 17.3077L17.3076 18L0 0.692307L0.692304 0Z" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal--success" id="success-modal" aria-hidden="true" data-modal-dialog>
+  <div class="modal__backdrop" tabindex="-1" data-a11y-dialog-hide></div>
+
+  <div class="modal__container" role="document">
+    <div class="modal__inner">
+      <div class="modal__panel">
+        <div class="modal__top">
+          <h2 class="modal__title modal__title--single">Успешно!</h2>
+          <p class="modal__text modal__text--success">
+            Ожидайте звонка менеджера в течение 15 минут <br> (в рабочее время)
+          </p>
+        </div>
+
+        <button type="button" class="modal__submit button" data-a11y-dialog-hide>Хорошо</button>
+      </div>
+
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно" data-a11y-dialog-hide>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.31955e-05 17.3077L17.3077 4.02664e-06L18 0.692312L0.692378 18L7.31955e-05 17.3077Z"
+            fill="currentColor" />
+          <path d="M0.692304 0L17.9999 17.3077L17.3076 18L0 0.692307L0.692304 0Z" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 @import './base.css';
 
 @import '../../../node_modules/swiper/swiper-bundle.min.css';
+@import '../../../node_modules/accordion-js/dist/accordion.min.css';
 
 @import './sections/header.css';
 @import './sections/hero.css';
@@ -12,3 +13,7 @@
 @import './sections/gift-help.css';
 @import './sections/exclusive.css';
 @import './sections/heritage.css';
+@import './sections/faq.css';
+@import './sections/help-choice.css';
+@import './sections/modal.css';
+@import './sections/footer.css';

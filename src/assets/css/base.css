@@ -17,10 +17,15 @@ body {
   font-family: var(--font-family);
   color: var(--brand-id-white);
   background: var(--brand-id-black);
+
+  @media (max-width: 480px) {
+    padding-bottom: 70px;
+  }
 }
 
 body.is-menu-open,
-body.is-search-open {
+body.is-search-open,
+body.is-modal-open {
   overflow: hidden;
 }
 
@@ -202,6 +207,10 @@ h6 {
   display: flex;
   gap: 8px;
   align-items: center;
+
+  .form-error {
+    display: none;
+  }
 }
 
 .input-checkbox {
@@ -247,4 +256,19 @@ h6 {
       text-decoration: underline;
     }
   }
+}
+
+.is-error {
+  outline: 1px solid #b63b3b;
+}
+
+.form-error {
+  display: block;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #b63b3b;
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
