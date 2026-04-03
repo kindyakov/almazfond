@@ -24,56 +24,76 @@ const parseSceneValue = (styles, variableName) => {
 
 const getSceneMetrics = (sceneElement) => {
   const styles = window.getComputedStyle(sceneElement);
+  const farWidth = parseSceneValue(styles, SCENE_VARIABLES.farWidth);
+  const farOffset = parseSceneValue(styles, SCENE_VARIABLES.farOffset);
+  const sceneWidth = sceneElement.clientWidth;
+  const offscreenOffset = Math.max(sceneWidth / 2 + farWidth, farOffset + farWidth + 96);
+  const sideOffset = parseSceneValue(styles, SCENE_VARIABLES.sideOffset);
+  const sideTop = parseSceneValue(styles, SCENE_VARIABLES.sideTop);
+  const sideWidth = parseSceneValue(styles, SCENE_VARIABLES.sideWidth);
+  const activeWidth = parseSceneValue(styles, SCENE_VARIABLES.activeWidth);
+  const farImageHeight = parseSceneValue(styles, SCENE_VARIABLES.farImageHeight);
+  const sideImageHeight = parseSceneValue(styles, SCENE_VARIABLES.sideImageHeight);
+  const activeImageHeight = parseSceneValue(styles, SCENE_VARIABLES.activeImageHeight);
 
   return {
     sceneHeight: parseSceneValue(styles, SCENE_VARIABLES.sceneHeight),
     anchors: [
       {
-        delta: -2,
-        x: -parseSceneValue(styles, SCENE_VARIABLES.farOffset),
+        delta: -3,
+        x: -offscreenOffset,
         y: 0,
-        width: parseSceneValue(styles, SCENE_VARIABLES.farWidth),
-        imageHeight: parseSceneValue(styles, SCENE_VARIABLES.farImageHeight),
-        opacity: 0.58
+        width: farWidth,
+        imageHeight: farImageHeight
+      },
+      {
+        delta: -2,
+        x: -farOffset,
+        y: 0,
+        width: farWidth,
+        imageHeight: farImageHeight
       },
       {
         delta: -1,
-        x: -parseSceneValue(styles, SCENE_VARIABLES.sideOffset),
-        y: parseSceneValue(styles, SCENE_VARIABLES.sideTop),
-        width: parseSceneValue(styles, SCENE_VARIABLES.sideWidth),
-        imageHeight: parseSceneValue(styles, SCENE_VARIABLES.sideImageHeight),
-        opacity: 0.86
+        x: -sideOffset,
+        y: sideTop,
+        width: sideWidth,
+        imageHeight: sideImageHeight
       },
       {
         delta: 0,
         x: 0,
         y: 0,
-        width: parseSceneValue(styles, SCENE_VARIABLES.activeWidth),
-        imageHeight: parseSceneValue(styles, SCENE_VARIABLES.activeImageHeight),
-        opacity: 1
+        width: activeWidth,
+        imageHeight: activeImageHeight
       },
       {
         delta: 1,
-        x: parseSceneValue(styles, SCENE_VARIABLES.sideOffset),
-        y: parseSceneValue(styles, SCENE_VARIABLES.sideTop),
-        width: parseSceneValue(styles, SCENE_VARIABLES.sideWidth),
-        imageHeight: parseSceneValue(styles, SCENE_VARIABLES.sideImageHeight),
-        opacity: 0.86
+        x: sideOffset,
+        y: sideTop,
+        width: sideWidth,
+        imageHeight: sideImageHeight
       },
       {
         delta: 2,
-        x: parseSceneValue(styles, SCENE_VARIABLES.farOffset),
+        x: farOffset,
         y: 0,
-        width: parseSceneValue(styles, SCENE_VARIABLES.farWidth),
-        imageHeight: parseSceneValue(styles, SCENE_VARIABLES.farImageHeight),
-        opacity: 0.58
+        width: farWidth,
+        imageHeight: farImageHeight
+      },
+      {
+        delta: 3,
+        x: offscreenOffset,
+        y: 0,
+        width: farWidth,
+        imageHeight: farImageHeight
       }
     ]
   };
 };
 
 const interpolateState = (delta, metrics) => {
-  if (delta < -2 || delta > 2) {
+  if (delta < -3 || delta > 3) {
     return null;
   }
 
@@ -90,8 +110,7 @@ const interpolateState = (delta, metrics) => {
         x: lerp(start.x, end.x, localProgress),
         y: lerp(start.y, end.y, localProgress),
         width: lerp(start.width, end.width, localProgress),
-        imageHeight: lerp(start.imageHeight, end.imageHeight, localProgress),
-        opacity: lerp(start.opacity, end.opacity, localProgress)
+        imageHeight: lerp(start.imageHeight, end.imageHeight, localProgress)
       };
     }
   }
@@ -135,9 +154,9 @@ const renderScene = (cardElements, sceneElement, floatingIndex) => {
     cardElement.style.setProperty('--showcase-card-width', `${state.width}px`);
     cardElement.style.setProperty('--showcase-card-x', `${state.x}px`);
     cardElement.style.setProperty('--showcase-card-y', `${state.y}px`);
-    cardElement.style.setProperty('--showcase-card-opacity', state.opacity.toFixed(3));
+    cardElement.style.setProperty('--showcase-card-opacity', '1');
     cardElement.style.setProperty('--showcase-card-z-index', `${zIndex}`);
-    cardElement.style.setProperty('--showcase-card-pointer-events', state.opacity > 0.01 ? 'auto' : 'none');
+    cardElement.style.setProperty('--showcase-card-pointer-events', 'auto');
     cardElement.style.setProperty('--showcase-image-height', `${state.imageHeight}px`);
   });
 };
@@ -171,9 +190,20 @@ export const initShowcaseSlider = () => {
 
   let showcaseSwiper = null;
   const desktopMediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
+  const dragState = {
+    active: false,
+    startX: 0,
+    startProgress: 0,
+    moved: false,
+    suppressClickUntil: 0
+  };
 
   const handleCardClick = (event, index) => {
     event.preventDefault();
+
+    if (dragState.suppressClickUntil > performance.now()) {
+      return;
+    }
 
     if (!showcaseSwiper || !desktopMediaQuery.matches) {
       return;
@@ -188,11 +218,90 @@ export const initShowcaseSlider = () => {
     const cardLink = cardElement.querySelector('.showcase__card-link');
 
     if (cardLink) {
+      cardLink.setAttribute('draggable', 'false');
+
       cardLink.addEventListener('click', (event) => {
         handleCardClick(event, index);
       });
     }
   });
+
+  const finishDrag = () => {
+    if (!dragState.active || !showcaseSwiper) {
+      return;
+    }
+
+    dragState.active = false;
+
+    if (dragState.moved) {
+      dragState.suppressClickUntil = performance.now() + 250;
+      const maxIndex = Math.max(cardElements.length - 1, 1);
+      const targetIndex = clamp(Math.round(showcaseSwiper.progress * maxIndex), 0, maxIndex);
+      showcaseSwiper.slideTo(targetIndex, showcaseSwiper.params.speed, true);
+      return;
+    }
+
+    setSceneTransitionDuration(sceneElement, 0);
+  };
+
+  const handleDragMove = (clientX) => {
+    if (!dragState.active || !showcaseSwiper) {
+      return;
+    }
+
+    const maxIndex = Math.max(cardElements.length - 1, 1);
+    const sliderWidth = showcaseSwiper.width || sceneElement.clientWidth || 1;
+    const deltaX = clientX - dragState.startX;
+    const nextProgress = clamp(dragState.startProgress - deltaX / (sliderWidth * maxIndex), 0, 1);
+
+    if (Math.abs(deltaX) > 4) {
+      dragState.moved = true;
+    }
+
+    showcaseSwiper.setProgress(nextProgress, 0);
+    syncSceneWithSwiper(showcaseSwiper, cardElements, sceneElement);
+  };
+
+  sliderElement.addEventListener('dragstart', (event) => {
+    if (event.target instanceof HTMLElement && event.target.closest('[data-showcase-scene]')) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener('mousedown', (event) => {
+    const sceneRect = sceneElement.getBoundingClientRect();
+    const isInsideScene =
+      event.clientX >= sceneRect.left &&
+      event.clientX <= sceneRect.right &&
+      event.clientY >= sceneRect.top &&
+      event.clientY <= sceneRect.bottom;
+
+    if (
+      !desktopMediaQuery.matches ||
+      !showcaseSwiper ||
+      event.button !== 0 ||
+      !isInsideScene
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    dragState.active = true;
+    dragState.startX = event.clientX;
+    dragState.startProgress = showcaseSwiper.progress;
+    dragState.moved = false;
+    setSceneTransitionDuration(sceneElement, 0);
+  }, true);
+
+  window.addEventListener('mousemove', (event) => {
+    if (!dragState.active) {
+      return;
+    }
+
+    handleDragMove(event.clientX);
+  });
+
+  window.addEventListener('mouseup', finishDrag);
 
   const mountDesktopSlider = () => {
     if (showcaseSwiper) {
@@ -204,9 +313,14 @@ export const initShowcaseSlider = () => {
       initialSlide: Math.min(2, cardElements.length - 1),
       slidesPerView: 1,
       speed: 650,
+      grabCursor: true,
       watchOverflow: true,
       watchSlidesProgress: true,
       allowTouchMove: true,
+      simulateTouch: true,
+      touchEventsTarget: 'container',
+      allowSlidePrev: true,
+      allowSlideNext: true,
       threshold: 8,
       resistanceRatio: 0.82,
       navigation: {
