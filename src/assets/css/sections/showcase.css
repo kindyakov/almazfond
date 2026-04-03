@@ -3,7 +3,8 @@
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding-block: 80px;
+    padding-top: 40px;
+    padding-bottom: 80px;
   }
 }
 
@@ -78,6 +79,15 @@
   pointer-events: none;
 }
 
+.showcase__measure {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  z-index: -1;
+}
+
 .showcase__ghost-slide {
   height: var(--showcase-scene-height);
 }
@@ -103,16 +113,18 @@
   transition:
     transform var(--showcase-transition-duration) ease,
     width var(--showcase-transition-duration) ease;
+
+  container-type: inline-size;
 }
 
 .showcase__slider.swiper-pointer-down .showcase__scene {
   cursor: grabbing;
 }
 
-.showcase__card-link {
+.showcase__card-inner {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   width: 100%;
   -webkit-user-drag: none;
 }
@@ -130,7 +142,7 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     user-select: none;
     pointer-events: none;
   }
@@ -139,30 +151,45 @@
 .showcase__card-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .showcase__card-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
 }
 
 .showcase__card-title {
   font-family: var(--second-family);
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 20px;
   line-height: 100%;
   text-transform: uppercase;
   color: #e7e4de;
+  transition: 0.2s ease;
+
+  @container (width < 190px) {
+    font-size: 18px;
+  }
 }
 
 .showcase__card-text {
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
   color: #b9b4a8;
+  transition: 0.2s ease;
+
+  @container (width < 180px) {
+    font-size: 14px;
+  }
+
+  @container (width < 140px) {
+    font-size: 11px;
+  }
 }
 
 .showcase__card-arrow {
@@ -177,53 +204,88 @@
 
 .showcase__button {
   width: 100%;
-  max-width: var(--showcase-active-width);
-  margin: 28px auto 0;
-}
+  max-width: min(417px, var(--showcase-active-width));
+  margin-inline: auto;
+  margin-top: 40px;
 
-@media (max-width: 1360px) {
-  .showcase__slider {
-    --showcase-scene-height: 660px;
-    --showcase-active-width: 360px;
-    --showcase-side-width: 184px;
-    --showcase-far-width: 150px;
-    --showcase-side-offset: 286px;
-    --showcase-far-offset: 468px;
-    --showcase-side-top: 146px;
-    --showcase-active-image-height: 500px;
-    --showcase-side-image-height: 258px;
-    --showcase-far-image-height: 210px;
+  @media (max-width: 1200px) {
+    margin-top: 20px;
   }
 }
 
-@media (max-width: 920px) {
-  .showcase__header {
-    flex-direction: column;
-    align-items: flex-start;
+@media (769px <=width <=920px) {
+  .showcase__slider {
+    margin-top: 32px;
+  }
+
+  .showcase__title {
+    max-width: 760px;
   }
 
   .showcase__controls {
-    display: none;
+    gap: 12px;
   }
 
+  .showcase__control {
+    width: 44px;
+    height: 44px;
+  }
+
+  .showcase__card-inner {
+    gap: 14px;
+  }
+
+  .showcase__card-content {
+    gap: 12px;
+  }
+
+  .showcase__card-head {
+    gap: 10px;
+  }
+
+  .showcase__card-title {
+    font-size: 18px;
+  }
+
+  .showcase__card-text {
+    font-size: 14px;
+    line-height: 135%;
+  }
+
+  .showcase__card-arrow svg {
+    width: 18px;
+    height: 12px;
+  }
+
+  .showcase__button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
   .showcase__track {
     display: none;
   }
 
   .showcase__scene {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
     height: auto;
     cursor: default;
     user-select: auto;
     touch-action: auto;
   }
 
+  .showcase__controls {
+    display: none;
+  }
+
   .showcase__card {
     position: static;
     left: auto;
     width: 100%;
+    max-width: 420px;
     opacity: 1;
     z-index: auto;
     pointer-events: auto;
@@ -232,22 +294,16 @@
   }
 
   .showcase__card-image {
-    height: 420px;
+    height: 330px;
     transition: none;
-  }
-
-  .showcase__button {
-    max-width: none;
-    margin-top: 24px;
   }
 }
 
-@media (max-width: 640px) {
-  .showcase__card-image {
-    height: 320px;
-  }
-
-  .showcase__card-title {
-    font-size: 20px;
+@media (max-width: 578px) {
+  .showcase__scene {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
   }
 }
