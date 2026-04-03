@@ -1,11 +1,11 @@
 <section class="showcase" aria-labelledby="showcase-title">
   <div class="showcase__container container">
-    <div class="showcase__header">
+    <div class="showcase__header" data-aos="fade-up">
       <h2 class="showcase__title title-h2" id="showcase-title">
         Искусство веков: <span>шедевры Златоуста</span>
       </h2>
 
-      <div class="showcase__controls">
+      <div class="showcase__controls" data-aos="fade-left" data-aos-delay="120">
         <button class="showcase__control" type="button" aria-label="Предыдущий слайд" data-showcase-prev>
           <svg width="24" height="14" aria-hidden="true">
             <use href="#icon-arrow-left"></use>
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="showcase__slider swiper" data-showcase-slider>
+    <div class="showcase__slider swiper" data-aos="fade-up" data-aos-delay="120" data-showcase-slider>
       <div class="showcase__track swiper-wrapper" data-showcase-track aria-hidden="true"></div>
 
       <div class="showcase__scene" data-showcase-scene>
@@ -163,6 +163,6 @@
       </div>
     </div>
 
-    <div class="showcase__button button">Посмотреть все коллекции</div>
+    <a href="#" class="showcase__button button">Посмотреть все коллекции</a>
   </div>
 </section>

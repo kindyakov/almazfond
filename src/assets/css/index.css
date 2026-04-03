@@ -1,6 +1,7 @@
 @import './variable.css';
 @import './base.css';
 
+@import '../../../node_modules/aos/dist/aos.css';
 @import '../../../node_modules/swiper/swiper-bundle.min.css';
 @import '../../../node_modules/accordion-js/dist/accordion.min.css';
 
