@@ -6,7 +6,7 @@
 @import '../../../node_modules/swiper/swiper-bundle.min.css';
 @import '../../../node_modules/accordion-js/dist/accordion.min.css';
 @import '../../../node_modules/nouislider/dist/nouislider.min.css';
-
+@import './sections/nouislider.css';
 @import './sections/breadcrumbs.css';
 
 @import './sections/header.css';

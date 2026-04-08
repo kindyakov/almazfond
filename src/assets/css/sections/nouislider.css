@@ -1,0 +1,49 @@
+.aside-filter__range-slider {
+  margin: 0 10px;
+  padding: 15px 0 10px;
+}
+
+.aside-filter__range-slider.noUi-target {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.aside-filter__range-slider .noUi-base {
+  height: 2px;
+  background: rgba(232, 225, 214, 0.2);
+}
+
+.aside-filter__range-slider .noUi-connect {
+  background: var(--brand-id-gold);
+}
+
+.aside-filter__range-slider .noUi-handle {
+  width: 16px;
+  height: 16px;
+  right: -8px;
+  top: -7px;
+  border: 1px solid var(--brand-id-gold);
+  border-radius: 50%;
+  background: #0e0e0f;
+  box-shadow: none;
+  cursor: grab;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  &:active {
+    transform: scale(1.3);
+  }
+}
+
+.aside-filter__range-slider .noUi-handle::before,
+.aside-filter__range-slider .noUi-handle::after {
+  display: none;
+}
+
+.aside-filter__range-slider .noUi-touch-area {
+  cursor: grab;
+}

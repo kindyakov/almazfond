@@ -16,6 +16,17 @@ export function initFilterAccordions() {
 
       content.classList.toggle('open', !isOpen);
       action.classList.toggle('open', !isOpen);
+
+      document.dispatchEvent(
+        new CustomEvent('filter-accordions:toggle', {
+          detail: {
+            accord,
+            content,
+            action,
+            isOpen: !isOpen
+          }
+        })
+      );
     });
   });
 }

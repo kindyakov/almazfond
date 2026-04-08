@@ -8,15 +8,16 @@
     <include src="../partials/header.html"></include>
 
     <main class="main">
-      <div class="container">
-        <nav class="breadcrumbs">
+
+      <nav class="breadcrumbs">
+        <div class="container breadcrumbs__container">
           <a href="/">Главная</a>
           <span>/</span>
           <a href="/categories.html">Категории</a>
           <span>/</span>
           <span>Эстетика величия</span>
-        </nav>
-      </div>
+        </div>
+      </nav>
 
       <section class="subcategories">
         <div class="subcategories__container container">
@@ -121,11 +122,21 @@
                 Фильтры
               </h3>
 
+              <button class="button-mobile-filter button-transparent" data-btn-mobile-filter-toggle>
+                <span>Фильтры</span>
+                <svg width="20" height="20" aria-hidden="true">
+                  <use href="#icon-arrow-left"></use>
+                </svg>
+              </button>
+
               <div class="sorting" data-sorting="id123">
                 <button class="sorting__action" data-sorting-action data-sorting-action-value="1">
                   <div data-sorting-action-text>Самые популярные</div>
-                  <svg width="24" height="14" aria-hidden="true">
+                  <svg width="24" height="14" aria-hidden="true" class="desktop">
                     <use href="#icon-arrow-left"></use>
+                  </svg>
+                  <svg width="32" height="32" aria-hidden="true" class="mobile">
+                    <use href="#icon-duble-arrow"></use>
                   </svg>
                 </button>
                 <div class="sorting__options" data-sorting-options>
@@ -149,43 +160,24 @@
             </div>
 
             <div class="subcategories__content">
-              <aside class="subcategories__aside aside-filter subcategories-aside-width">
-                <div class="aside-filter__body">
+              <aside class="subcategories__aside aside-filter subcategories-aside-width" data-aside
+                data-da=".subcategories__top,900,1">
+                <div class="aside-filter__body" data-aside-body>
                   <h3 class="aside-filter__title">Цена, руб.</h3>
-                  <div
-                    class="aside-filter__price-range"
-                    data-filter-range
-                    data-filter-range-min="0"
-                    data-filter-range-max="100000"
-                    data-filter-range-step="1"
-                    data-filter-range-start-from="0"
-                    data-filter-range-start-to="100000"
-                  >
+                  <div class="aside-filter__price-range" data-filter-range data-filter-range-min="0"
+                    data-filter-range-max="100000" data-filter-range-step="1" data-filter-range-start-from="0"
+                    data-filter-range-start-to="100000">
                     <div class="aside-filter__range-slider" data-filter-range-slider></div>
                     <div class="aside-filter__range-inputs">
                       <div class="aside-filter__range-wp-input">
                         <span>от</span>
-                        <input
-                          type="text"
-                          name=""
-                          class="aside-filter__range-input"
-                          data-filter-range-input
-                          inputmode="numeric"
-                          pattern="[0-9]*"
-                          autocomplete="off"
-                        >
+                        <input type="text" name="" class="aside-filter__range-input" data-filter-range-input
+                          inputmode="numeric" pattern="[0-9]*" autocomplete="off">
                       </div>
                       <div class="aside-filter__range-wp-input">
                         <span>до</span>
-                        <input
-                          type="text"
-                          name=""
-                          class="aside-filter__range-input"
-                          data-filter-range-input
-                          inputmode="numeric"
-                          pattern="[0-9]*"
-                          autocomplete="off"
-                        >
+                        <input type="text" name="" class="aside-filter__range-input" data-filter-range-input
+                          inputmode="numeric" pattern="[0-9]*" autocomplete="off">
                       </div>
                     </div>
                   </div>
@@ -255,16 +247,73 @@
                 </div>
               </aside>
               <div class="subcategories__grid">
-                <a href="" class="subcategories__card card">
-                  <div class="card__img">
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
                     <img src="../assets/images/card-1.png" alt="Картинка">
                   </div>
-                  <div class="card__content">
-                    <h3 class="card__title">Конфетница «Десерт»</h3>
-                    <b class="card__price">₽ 51 000</b>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Конфетница «Десерт»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
+                  </div>
+                </a>
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Композиция с вазочкой «Мечтательница»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
+                  </div>
+                </a>
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Конфетница «Десерт»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
+                  </div>
+                </a>
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Конфетница «Десерт»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
+                  </div>
+                </a>
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Конфетница «Десерт»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
+                  </div>
+                </a>
+                <a href="/product.html" class="subcategories__card product-card">
+                  <div class="product-card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__title">Конфетница «Десерт»</h3>
+                    <b class="product-card__price">₽ 51 000</b>
                   </div>
                 </a>
               </div>
+            </div>
+            <div class="subcategories__bottom">
+              <button class="subcategories__button-more button-transparent">
+                Показать еще
+              </button>
+              <nav class="pagination">
+                <button class="pagination__btn">1</button>
+                <button class="pagination__btn">3</button>
+                <button class="pagination__btn">4</button>
+                <div class="pagination__btn">...</div>
+                <button class="pagination__btn">20</button>
+              </nav>
             </div>
           </div>
         </div>

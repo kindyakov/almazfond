@@ -10,6 +10,7 @@ import { initSorting } from './modules/sorting.js';
 import { initSubcategoriesSlider } from './modules/subcategoriesSlider.js';
 import { initFilterAccordions } from './modules/filterAccordions.js';
 import { initFilterRangeSlider } from './modules/filterRangeSlider.js';
+import { initAsideSticky } from './modules/asideSticky.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSubcategoriesSlider();
   initFilterAccordions();
   initFilterRangeSlider();
+  initAsideSticky();
 });
