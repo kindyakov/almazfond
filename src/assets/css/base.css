@@ -118,7 +118,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #c6a46c;
+  background: var(--brand-id-gold);
   padding: 10px 40px;
   height: 56px;
   font-family: var(--second-family);
@@ -127,26 +127,26 @@ h6 {
   line-height: 100%;
   text-transform: uppercase;
   color: #0e0e0f;
-  border: 1px solid #c6a46c;
+  border: 1px solid var(--brand-id-gold);
   transition: 0.3s ease;
   white-space: nowrap;
 
   &:hover {
-    color: #c6a46c;
+    color: var(--brand-id-gold);
     background: transparent;
   }
 }
 
 .button-transparent {
   background: transparent;
-  border: 1px solid #c6a46c;
-  color: #c6a46c;
+  border: 1px solid var(--brand-id-gold);
+  color: var(--brand-id-gold);
   font-family: var(--second-family);
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #c6a46c;
+  color: var(--brand-id-gold);
   transition: 0.3s ease;
   padding: 10px 20px;
   height: 56px;
@@ -155,9 +155,29 @@ h6 {
   align-items: center;
   justify-content: center;
 
-  &:hover {
-    color: #0e0e0f;
-    background: #c6a46c;
+  &:not([disabled]) {
+    &:hover {
+      color: #0e0e0f;
+      background: var(--brand-id-gold);
+    }
+  }
+
+}
+
+.title-h1 {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #e7e4de;
+
+  span {
+    color: var(--brand-id-gold);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
   }
 }
 
@@ -171,7 +191,7 @@ h6 {
   color: #e7e4de;
 
   span {
-    color: #c6a46c;
+    color: var(--brand-id-gold);
   }
 
   @media (max-width: 920px) {

@@ -38,6 +38,7 @@
     "aos": "^2.3.4",
     "imask": "^7.6.1",
     "just-validate": "^4.3.0",
+    "nouislider": "^15.8.1",
     "swiper": "^12.1.3"
   }
 }

@@ -6,6 +6,10 @@ import { initAOS } from './modules/aos.js';
 import { initForms } from './modules/forms.js';
 import { initModal } from './modules/modal.js';
 import { initShowcaseSlider } from './modules/showcase.js';
+import { initSorting } from './modules/sorting.js';
+import { initSubcategoriesSlider } from './modules/subcategoriesSlider.js';
+import { initFilterAccordions } from './modules/filterAccordions.js';
+import { initFilterRangeSlider } from './modules/filterRangeSlider.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
@@ -16,4 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initForms();
   initAOS();
+  initSorting();
+  initSubcategoriesSlider();
+  initFilterAccordions();
+  initFilterRangeSlider();
 });

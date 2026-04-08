@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ru">
+<include src="../partials/head.html" locals='{"page_title": "Подкатегории", "page_description": "Almazfond"}'></include>
+
+<body>
+  <div class="page">
+    <include src="../partials/sprite.html"></include>
+    <include src="../partials/header.html"></include>
+
+    <main class="main">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Главная</a>
+          <span>/</span>
+          <a href="/categories.html">Категории</a>
+          <span>/</span>
+          <span>Эстетика величия</span>
+        </nav>
+      </div>
+
+      <section class="subcategories">
+        <div class="subcategories__container container">
+          <h1 class="subcategories__title title-h1">
+            Эстетика величия
+            <sub>
+              / 171
+            </sub>
+          </h1>
+
+          <div class="subcategories__list swiper" data-subcategories-slider>
+            <div class="subcategories__list-wrapper swiper-wrapper">
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Вазы</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Статуэтки</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Подсвечники</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Рамки</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Браслеты</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Кольца</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Серьги</h3>
+                </a>
+              </div>
+              <div class="subcategories__item swiper-slide">
+                <a href="#" class="subcategories__link">
+                  <div class="subcategories__link--img">
+                    <img src="../assets/images/subcategories-link-img-1.png" alt="Картинка">
+                  </div>
+                  <h3 class="subcategories__link--title">Часы</h3>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="subcategories__list--control">
+            <div class="subcategories__list--progres"></div>
+            <div class="subcategories__list--actions">
+              <button class="subcategories__list--button prev button-transparent" aria-label="Предыдущий слайд"
+                data-subcategories-list-prev>
+                <svg width="24" height="14" aria-hidden="true">
+                  <use href="#icon-arrow-left"></use>
+                </svg>
+              </button>
+              <button class="subcategories__list--button next button-transparent" aria-label="Следующий слайд"
+                data-subcategories-list-next>
+                <svg width="24" height="14" aria-hidden="true">
+                  <use href="#icon-arrow-left"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+
+          <div class="subcategories__body">
+            <div class="subcategories__top">
+              <h3 class="subcategories__title-h3 subcategories-aside-width">
+                Фильтры
+              </h3>
+
+              <div class="sorting" data-sorting="id123">
+                <button class="sorting__action" data-sorting-action data-sorting-action-value="1">
+                  <div data-sorting-action-text>Самые популярные</div>
+                  <svg width="24" height="14" aria-hidden="true">
+                    <use href="#icon-arrow-left"></use>
+                  </svg>
+                </button>
+                <div class="sorting__options" data-sorting-options>
+                  <button class="sorting__option" data-sorting-option data-sorting-option-value="1">
+                    Самые популярные
+                  </button>
+                  <button class="sorting__option" data-sorting-option data-sorting-option-value="2">
+                    Сначала дешовые
+                  </button>
+                  <button class="sorting__option" data-sorting-option data-sorting-option-value="3">
+                    Сначала дорогие
+                  </button>
+                  <button class="sorting__option" data-sorting-option data-sorting-option-value="4">
+                    По названию А-Я
+                  </button>
+                  <button class="sorting__option" data-sorting-option data-sorting-option-value="5">
+                    По названию Я-А
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="subcategories__content">
+              <aside class="subcategories__aside aside-filter subcategories-aside-width">
+                <div class="aside-filter__body">
+                  <h3 class="aside-filter__title">Цена, руб.</h3>
+                  <div
+                    class="aside-filter__price-range"
+                    data-filter-range
+                    data-filter-range-min="0"
+                    data-filter-range-max="100000"
+                    data-filter-range-step="1000"
+                    data-filter-range-start-from="0"
+                    data-filter-range-start-to="100000"
+                  >
+                    <div class="aside-filter__range-slider" data-filter-range-slider></div>
+                    <div class="aside-filter__range-inputs">
+                      <div class="aside-filter__range-wp-input">
+                        <span>от</span>
+                        <input
+                          type="text"
+                          name=""
+                          class="aside-filter__range-input"
+                          data-filter-range-input
+                          inputmode="numeric"
+                          pattern="[0-9]*"
+                          autocomplete="off"
+                        >
+                      </div>
+                      <div class="aside-filter__range-wp-input">
+                        <span>до</span>
+                        <input
+                          type="text"
+                          name=""
+                          class="aside-filter__range-input"
+                          data-filter-range-input
+                          inputmode="numeric"
+                          pattern="[0-9]*"
+                          autocomplete="off"
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="aside-filter__accord" data-filter-accord="123das">
+                    <button class="aside-filter__accord--action" data-filter-accord-action>
+                      <span>Материал</span>
+                      <svg width="20" height="20" aria-hidden="true">
+                        <use href="#icon-arrow-left"></use>
+                      </svg>
+                    </button>
+                    <div class="aside-filter__accord-content" data-filter-accord-content>
+                      <div class="aside-filter__accord-content-inner">
+                        <label class="aside-filter__accord-item">
+                          <input class="modal__input-checkbox input-checkbox is-error" type="checkbox"
+                            id="filter-checkbox-1" name="">
+                          <label for="filter-checkbox-1" class="checkbox">
+                            <svg width="15" height="10" aria-hidden="true">
+                              <use href="#icon-check"></use>
+                            </svg>
+                          </label>
+                          <p>Агат</p>
+                          <span>
+                            /10
+                          </span>
+                        </label>
+                        <label class="aside-filter__accord-item">
+                          <input class="modal__input-checkbox input-checkbox is-error" type="checkbox"
+                            id="filter-checkbox-2" name="">
+                          <label for="filter-checkbox-2" class="checkbox">
+                            <svg width="15" height="10" aria-hidden="true">
+                              <use href="#icon-check"></use>
+                            </svg>
+                          </label>
+                          <p>Агат</p>
+                          <span>
+                            /10
+                          </span>
+                        </label>
+                        <label class="aside-filter__accord-item">
+                          <input class="modal__input-checkbox input-checkbox is-error" type="checkbox"
+                            id="filter-checkbox-3" name="">
+                          <label for="filter-checkbox-3" class="checkbox">
+                            <svg width="15" height="10" aria-hidden="true">
+                              <use href="#icon-check"></use>
+                            </svg>
+                          </label>
+                          <p>Агат</p>
+                          <span>
+                            /10
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <label class="aside-filter__row">
+                    <h3 class="aside-filter__title">В наличии</h3>
+                    <input class="modal__input-checkbox input-checkbox is-error" type="checkbox" id="filter-checkbox-4"
+                      name="">
+                    <label for="filter-checkbox-4" class="checkbox">
+                      <svg width="15" height="10" aria-hidden="true">
+                        <use href="#icon-check"></use>
+                      </svg>
+                    </label>
+                  </label>
+                </div>
+              </aside>
+              <div class="subcategories__grid">
+                <a href="" class="subcategories__card card">
+                  <div class="card__img">
+                    <img src="../assets/images/card-1.png" alt="Картинка">
+                  </div>
+                  <div class="card__content">
+                    <h3 class="card__title">Конфетница «Десерт»</h3>
+                    <b class="card__price">₽ 51 000</b>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <include src="../partials/sections/help-choice.html"></include>
+    </main>
+    <include src="../partials/footer.html"></include>
+  </div>
+</body>
+
+</html>

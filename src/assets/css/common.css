@@ -1,0 +1,262 @@
+.sorting {
+  position: relative;
+  width: fit-content;
+}
+
+.sorting__action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #e7e4de;
+  transition: color 0.3s ease;
+
+  svg {
+    flex-shrink: 0;
+    width: 20px;
+    transition: transform 0.2s ease;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    color: var(--brand-id-gold);
+  }
+
+  &.selected {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.sorting__options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  background: #1f1f21;
+  z-index: 5;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.sorting__option {
+  transition: color 0.2s ease;
+  font-size: 16px;
+  line-height: 140%;
+  color: #b9b4a8;
+  font-weight: 400;
+  text-align: left;
+
+  &:hover {
+    color: var(--brand-id-gold);
+  }
+
+  &.selected {
+    color: var(--brand-id-gold);
+  }
+}
+
+.aside-filter {
+  border-right: 1px solid rgba(232, 225, 214, 0.4);
+  padding-right: 12px;
+  overflow: hidden;
+}
+
+.aside-filter__body {
+  position: static;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aside-filter__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 110%;
+  color: #e7e4de;
+}
+
+.aside-filter__price-range {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aside-filter__range-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.aside-filter__range-wp-input {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #b9b4a8;
+  }
+}
+
+.aside-filter__range-input {
+  border: 1px solid #b9b4a8;
+  padding: 4px 8px 4px 30px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #b9b4a8;
+  width: fit-content;
+  width: 90px;
+}
+
+.aside-filter__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.aside-filter__accord {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(232, 225, 214, 0.4);
+}
+
+.aside-filter__accord--action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 110%;
+  color: #e7e4de;
+  transition: color 0.2s ease;
+  padding-top: 20px;
+
+  svg {
+    flex-shrink: 0;
+    width: 20px;
+    transition: 0.2s ease;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    color: var(--brand-id-gold);
+  }
+
+  &.open {
+    color: var(--brand-id-gold);
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.aside-filter__accord-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s ease;
+  padding-top: 0;
+  overflow: hidden;
+
+  &.open {
+    grid-template-rows: 1fr;
+    padding-top: 24px;
+  }
+}
+
+.aside-filter__accord-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.aside-filter__accord-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  color: #b9b4a8;
+
+  p {
+    flex: 1 1 auto;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img {
+  height: 312px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.card__content {
+  background: #e8e1d6;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: auto;
+}
+
+.card__title {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #0e0e0f;
+}
+
+.card__price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  color: #8c6b3e;
+  margin-top: auto;
+}

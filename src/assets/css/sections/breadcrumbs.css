@@ -1,0 +1,19 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 20px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #e7e4de;
+
+  a {
+    color: #b9b4a8;
+
+    &:hover {
+      color: var(--brand-id-gold);
+    }
+  }
+}

@@ -1,9 +1,13 @@
 @import './variable.css';
 @import './base.css';
+@import './common.css';
 
 @import '../../../node_modules/aos/dist/aos.css';
 @import '../../../node_modules/swiper/swiper-bundle.min.css';
 @import '../../../node_modules/accordion-js/dist/accordion.min.css';
+@import '../../../node_modules/nouislider/dist/nouislider.min.css';
+
+@import './sections/breadcrumbs.css';
 
 @import './sections/header.css';
 @import './sections/hero.css';
@@ -17,5 +21,8 @@
 @import './sections/heritage.css';
 @import './sections/faq.css';
 @import './sections/help-choice.css';
+@import './sections/categories.css';
+@import './sections/subcategories.css';
+
 @import './sections/modal.css';
 @import './sections/footer.css';

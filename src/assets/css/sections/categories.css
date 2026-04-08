@@ -1,0 +1,154 @@
+.categories {
+  padding: 60px 0 100px 0;
+  background: var(--brand-id-black);
+}
+
+.categories__title {
+  text-align: center;
+}
+
+.categories__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 40px;
+  overflow-x: hidden;
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.categories__article {
+  position: relative;
+  padding-bottom: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 24px);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: rgba(232, 225, 214, 0.4);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &:nth-last-child(-n+2) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.categories__card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &:hover {
+    .categories__card--title {
+      color: var(--brand-id-gold)
+    }
+
+    .categories__card--img img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.categories__card--img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 480px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 1320px) {
+    height: 400px;
+  }
+
+  @media (max-width: 640px) {
+    height: 320px;
+  }
+
+  @media (max-width: 420px) {
+    height: 252px;
+  }
+}
+
+.categories__card--content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.categories__card--content_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  svg {
+    flex-shrink: 0;
+    transform: rotate(135deg);
+  }
+}
+
+.categories__card--title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #e7e4de;
+  transition: color 0.2s ease;
+}
+
+.categories__card--text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #b9b4a8;
+  margin-top: 8px;
+}
+
+.categories__card--tags {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    gap: 6px;
+  }
+}
+
+.categories__card--tag {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #b9b4a8;
+  padding: 12px 20px;
+  background: #1f1f21;
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
