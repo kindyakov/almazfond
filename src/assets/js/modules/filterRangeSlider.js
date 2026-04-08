@@ -1,8 +1,17 @@
 import noUiSlider from 'nouislider';
 
 const RANGE_INPUT_DEBOUNCE_MS = 250;
+const numberFormatter = new Intl.NumberFormat('ru-RU');
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const formatNumber = (value) =>
+  numberFormatter.format(Math.trunc(Number(value) || 0)).replace(/\u00A0/g, ' ');
+
+const parseFormattedNumber = (value, fallback) => {
+  const parsed = Number.parseInt(String(value ?? '').replace(/[^\d-]/g, ''), 10);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
 
 const toNumber = (value, fallback) => {
   const parsed = Number.parseInt(String(value ?? '').trim(), 10);
@@ -11,11 +20,13 @@ const toNumber = (value, fallback) => {
 
 const onlyDigits = (value) => String(value ?? '').replace(/[^\d]/g, '');
 
-const getCurrentSliderValues = (sliderElement) =>
-  sliderElement.noUiSlider
-    .get()
-    .map((value) => Number.parseInt(String(value), 10))
-    .map((value) => (Number.isFinite(value) ? value : 0));
+const getCurrentSliderValues = (sliderElement) => sliderElement.noUiSlider.get(true);
+
+const renderInputValue = (input, value) => {
+  const rawValue = String(Math.trunc(Number(value) || 0));
+  input.dataset.filterRangeRawValue = rawValue;
+  input.value = formatNumber(rawValue);
+};
 
 const initRange = (rangeElement) => {
   const sliderElement = rangeElement.querySelector('[data-filter-range-slider]');
@@ -36,8 +47,8 @@ const initRange = (rangeElement) => {
   const startTo = clamp(Math.max(startFromRaw, startToRaw), min, max);
 
   const format = {
-    to: (value) => `${Math.round(value)}`,
-    from: (value) => Number(value)
+    to: (value) => formatNumber(value),
+    from: (value) => parseFormattedNumber(value, 0)
   };
 
   noUiSlider.create(sliderElement, {
@@ -48,35 +59,40 @@ const initRange = (rangeElement) => {
       min,
       max
     },
-    tooltips: true,
     format
   });
 
   const [fromInput, toInput] = inputs;
+  let currentValues = [startFrom, startTo];
 
   const syncInputs = (values) => {
-    fromInput.value = values[0];
-    toInput.value = values[1];
+    currentValues = [values[0], values[1]];
+    renderInputValue(fromInput, values[0]);
+    renderInputValue(toInput, values[1]);
   };
 
   sliderElement.noUiSlider.on('update', (values) => {
-    syncInputs(values);
+    syncInputs(values.map((value) => parseFormattedNumber(value, 0)));
   });
 
   const applyInputsToSlider = () => {
-    const currentValues = getCurrentSliderValues(sliderElement);
-    const nextFrom = clamp(
-      onlyDigits(fromInput.value) ? toNumber(fromInput.value, currentValues[0]) : currentValues[0],
-      min,
-      max
-    );
-    const nextTo = clamp(
-      onlyDigits(toInput.value) ? toNumber(toInput.value, currentValues[1]) : currentValues[1],
-      min,
-      max
-    );
+    const sliderValues = getCurrentSliderValues(sliderElement);
+    const fromValue = fromInput.dataset.filterRangeRawValue || onlyDigits(fromInput.value);
+    const toValue = toInput.dataset.filterRangeRawValue || onlyDigits(toInput.value);
 
-    sliderElement.noUiSlider.set([Math.min(nextFrom, nextTo), Math.max(nextFrom, nextTo)]);
+    const nextFrom = clamp(
+      fromValue ? toNumber(fromValue, sliderValues[0]) : sliderValues[0],
+      min,
+      max
+    );
+    const nextTo = clamp(toValue ? toNumber(toValue, sliderValues[1]) : sliderValues[1], min, max);
+
+    const normalizedFrom = Math.min(nextFrom, nextTo);
+    const normalizedTo = Math.max(nextFrom, nextTo);
+
+    if (normalizedFrom !== currentValues[0] || normalizedTo !== currentValues[1]) {
+      sliderElement.noUiSlider.set([normalizedFrom, normalizedTo]);
+    }
   };
 
   let inputUpdateTimer = null;
@@ -92,7 +108,9 @@ const initRange = (rangeElement) => {
     input.setAttribute('autocomplete', 'off');
 
     input.addEventListener('input', () => {
-      input.value = onlyDigits(input.value);
+      const rawValue = onlyDigits(input.value);
+      input.dataset.filterRangeRawValue = rawValue;
+      input.value = rawValue ? formatNumber(rawValue) : '';
       scheduleSliderUpdate();
     });
 

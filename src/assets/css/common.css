@@ -76,6 +76,11 @@
   border-right: 1px solid rgba(232, 225, 214, 0.4);
   padding-right: 12px;
   overflow: hidden;
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .aside-filter__body {
@@ -129,7 +134,7 @@
   font-size: 14px;
   color: #b9b4a8;
   width: fit-content;
-  width: 90px;
+  width: 100px;
 }
 
 .aside-filter__row {
@@ -138,6 +143,8 @@
   gap: 10px;
   width: 100%;
   align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(232, 225, 214, 0.4);
 }
 
 .aside-filter__accord {
