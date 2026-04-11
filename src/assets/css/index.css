@@ -25,6 +25,9 @@
 @import './sections/categories.css';
 @import './sections/subcategories.css';
 @import './sections/product.css';
+@import './sections/detail-selection.css';
+@import './sections/similar.css';
+@import './sections/delivery-payment.css';
 
 @import './sections/modal.css';
 @import './sections/footer.css';

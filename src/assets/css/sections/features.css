@@ -2,6 +2,18 @@
   padding: 40px 0;
 }
 
+.reliability {
+  padding-top: 100px;
+
+  @media (max-width: 768px) {
+    padding-top: 80px;
+  }
+}
+
+.reliability .features__list {
+  margin-top: 40px;
+}
+
 .features__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
