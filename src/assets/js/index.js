@@ -6,6 +6,7 @@ import { initAOS } from './modules/aos.js';
 import { initForms } from './modules/forms.js';
 import { initModal } from './modules/modal.js';
 import { initShowcaseSlider } from './modules/showcase.js';
+import { initProductGallery } from './modules/productGallery.js';
 import { initSorting } from './modules/sorting.js';
 import { initSubcategoriesSlider } from './modules/subcategoriesSlider.js';
 import { initFilterAccordions } from './modules/filterAccordions.js';
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
   initHeader();
   initShowcaseSlider();
+  initProductGallery();
   initHitsSlider();
   initFaq();
   initModal();

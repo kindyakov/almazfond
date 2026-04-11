@@ -1,0 +1,35 @@
+.pagination {
+  display: flex;
+  gap: 5px;
+
+  @container (min-width: 830px) {
+    right: 0;
+    position: absolute;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.pagination__btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #1F1F21;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #b9b4a8;
+  border: 1px solid #1F1F21;
+  transition: border 0.2s ease;
+
+  &:hover {
+    border-color: var(--brand-id-gold);
+  }
+}

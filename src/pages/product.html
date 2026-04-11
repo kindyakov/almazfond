@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<include src="../partials/head.html" locals='{"page_title": "Конфетница «Десерт»", "page_description": "Almazfond"}'>
+</include>
+
+<body>
+  <div class="page">
+    <include src="../partials/sprite.html"></include>
+    <include src="../partials/header.html"></include>
+
+    <main class="main">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Главная</a>
+          <span>/</span>
+          <a href="categories.html">Категории</a>
+          <span>/</span>
+          <a href="/subcategories.html">Эстетика величия</a>
+          <span>/</span>
+          <a href="/products.html">Вазы</a>
+          <span>/</span>
+          <span>Конфетница «Десерт»</span>
+        </nav>
+      </div>
+
+      <section class="product">
+        <div class="container product__container">
+          <div class="product__preview">
+            <div class="product-gallery" data-product-gallery>
+              <div class="product-gallery__main swiper" data-product-gallery-main>
+                <div class="product-gallery__controls">
+                  <button class="product-gallery__control" type="button" aria-label="Предыдущий слайд"
+                    data-product-gallery-prev>
+                    <svg width="24" height="14" aria-hidden="true">
+                      <use href="#icon-arrow-left"></use>
+                    </svg>
+                  </button>
+
+                  <button class="product-gallery__control product-gallery__control--next" type="button"
+                    aria-label="Следующий слайд" data-product-gallery-next>
+                    <svg width="24" height="14" aria-hidden="true">
+                      <use href="#icon-arrow-left"></use>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="swiper-wrapper">
+                  <div class="product-gallery__main-slide swiper-slide">
+                    <img src="../assets/images/g-slide-img-1.png" alt="Конфетница «Десерт», вид спереди" loading="eager"
+                      width="648" height="648">
+                  </div>
+
+                  <div class="product-gallery__main-slide swiper-slide">
+                    <img src="../assets/images/g-slide-img-1.png" alt="Конфетница «Десерт», вид спереди"
+                      loading="lazy" width="648" height="648">
+                  </div>
+
+                  <div class="product-gallery__main-slide swiper-slide">
+                    <img src="../assets/images/g-slide-img-1.png" alt="Конфетница «Десерт», вид спереди"
+                      loading="lazy" width="648" height="648">
+                  </div>
+
+                  <div class="product-gallery__main-slide swiper-slide">
+                    <img src="../assets/images/g-slide-img-1.png" alt="Конфетница «Десерт», вид спереди" loading="lazy"
+                      width="648" height="648">
+                  </div>
+
+                  <div class="product-gallery__main-slide swiper-slide">
+                    <img src="../assets/images/g-slide-img-1.png" alt="Конфетница «Десерт», вид спереди"
+                      loading="lazy" width="648" height="648">
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-gallery__thumbs swiper" data-product-gallery-thumbs aria-label="Миниатюры товара">
+                <div class="swiper-wrapper">
+                  <div class="product-gallery__thumb swiper-slide" role="button" tabindex="0"
+                    aria-label="Открыть изображение товара 1">
+                    <img src="../assets/images/g-slide-img-1.png" alt="" loading="lazy" width="88" height="88">
+                  </div>
+
+                  <div class="product-gallery__thumb swiper-slide" role="button" tabindex="0"
+                    aria-label="Открыть изображение товара 2">
+                    <img src="../assets/images/g-slide-img-1.png" alt="" loading="lazy" width="88" height="88">
+                  </div>
+
+                  <div class="product-gallery__thumb swiper-slide" role="button" tabindex="0"
+                    aria-label="Открыть изображение товара 3">
+                    <img src="../assets/images/g-slide-img-1.png" alt="" loading="lazy" width="88" height="88">
+                  </div>
+
+                  <div class="product-gallery__thumb swiper-slide" role="button" tabindex="0"
+                    aria-label="Открыть изображение товара 4">
+                    <img src="../assets/images/g-slide-img-1.png" alt="" loading="lazy" width="88" height="88">
+                  </div>
+
+                  <div class="product-gallery__thumb swiper-slide" role="button" tabindex="0"
+                    aria-label="Открыть изображение товара 5">
+                    <img src="../assets/images/g-slide-img-1.png" alt="" loading="lazy" width="88" height="88">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product__content">
+            <div class="product__eyebrow">Эксклюзивная сервировка</div>
+            <h1 class="product__title title-h1">Конфетница <span>«Десерт»</span></h1>
+            <div class="product__price">₽ 51 000</div>
+            <p class="product__text">
+              Авторская конфетница с выразительным силуэтом и декоративной росписью. Предмет рассчитан на акцентную
+              подачу и работает как самостоятельный арт-объект в интерьере.
+            </p>
+            <ul class="product__facts">
+              <li>Материалы: латунь, позолота, декоративная эмаль</li>
+              <li>Производство: Златоуст</li>
+              <li>Статус: под заказ</li>
+            </ul>
+            <div class="product__actions">
+              <a href="#feedback" class="button">Оставить заявку</a>
+              <a href="/products.html" class="button-transparent">Вернуться в каталог</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <include src="../partials/footer.html"></include>
+  </div>
+</body>
+
+</html>

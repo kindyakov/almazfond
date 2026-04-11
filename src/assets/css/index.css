@@ -8,6 +8,7 @@
 @import '../../../node_modules/nouislider/dist/nouislider.min.css';
 @import './sections/nouislider.css';
 @import './sections/breadcrumbs.css';
+@import './sections/pagination.css';
 
 @import './sections/header.css';
 @import './sections/hero.css';
@@ -23,6 +24,7 @@
 @import './sections/help-choice.css';
 @import './sections/categories.css';
 @import './sections/subcategories.css';
+@import './sections/product.css';
 
 @import './sections/modal.css';
 @import './sections/footer.css';
