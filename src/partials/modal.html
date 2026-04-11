@@ -2,8 +2,8 @@
   <div class="modal__backdrop" tabindex="-1" data-a11y-dialog-hide></div>
 
   <div class="modal__container" role="document">
-    <div class="modal__inner">
-      <div class="modal__panel">
+    <div class="modal__header">
+      <div class="modal__heading">
         <div class="modal__top">
           <h2 class="modal__title" data-modal-title>
             <span data-modal-title-line="1">Профессиональная</span>
@@ -13,31 +13,6 @@
             Оставьте заявку. <b>Консультация и подбор</b> под конкретный запрос.
           </p>
         </div>
-
-        <form class="modal__form" data-request-form>
-          <div class="modal__input-wrapper input-wrapper">
-            <input class="modal__input input" type="text" name="name" placeholder="Ваше имя">
-          </div>
-
-          <div class="modal__input-wrapper input-wrapper">
-            <input class="modal__input input" type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel">
-          </div>
-
-          <div class="modal__checkbox-row checkbox-wrapper">
-            <input class="modal__input-checkbox input-checkbox" type="checkbox" id="modal-checkbox" name="policy">
-            <label for="modal-checkbox" class="checkbox">
-              <svg width="15" height="10" aria-hidden="true">
-                <use href="#icon-check"></use>
-              </svg>
-            </label>
-            <p class="modal__checkbox-text checkbox-text">
-              Я соглашаюсь с <a href="">политикой конфиденциальности</a> <br> и <a href="">обработкой персональных
-                данных</a>
-            </p>
-          </div>
-
-          <button type="submit" class="modal__submit button" data-modal-submit>Подобрать изделие</button>
-        </form>
       </div>
 
       <button class="modal__close" type="button" aria-label="Закрыть модальное окно" data-a11y-dialog-hide>
@@ -48,6 +23,31 @@
         </svg>
       </button>
     </div>
+
+    <form class="modal__form" data-request-form>
+      <div class="modal__input-wrapper input-wrapper">
+        <input class="modal__input input" type="text" name="name" placeholder="Ваше имя">
+      </div>
+
+      <div class="modal__input-wrapper input-wrapper">
+        <input class="modal__input input" type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel">
+      </div>
+
+      <div class="modal__checkbox-row checkbox-wrapper">
+        <input class="modal__input-checkbox input-checkbox" type="checkbox" id="modal-checkbox" name="policy">
+        <label for="modal-checkbox" class="checkbox">
+          <svg width="15" height="10" aria-hidden="true">
+            <use href="#icon-check"></use>
+          </svg>
+        </label>
+        <p class="modal__checkbox-text checkbox-text">
+          Я соглашаюсь с <a href="">политикой конфиденциальности</a> <br> и <a href="">обработкой персональных
+            данных</a>
+        </p>
+      </div>
+
+      <button type="submit" class="modal__submit button" data-modal-submit>Подобрать изделие</button>
+    </form>
   </div>
 </div>
 
@@ -55,16 +55,14 @@
   <div class="modal__backdrop" tabindex="-1" data-a11y-dialog-hide></div>
 
   <div class="modal__container" role="document">
-    <div class="modal__inner">
-      <div class="modal__panel">
+    <div class="modal__header">
+      <div class="modal__heading">
         <div class="modal__top">
           <h2 class="modal__title modal__title--single">Успешно!</h2>
           <p class="modal__text modal__text--success">
             Ожидайте звонка менеджера в течение 15 минут <br> (в рабочее время)
           </p>
         </div>
-
-        <button type="button" class="modal__submit button" data-a11y-dialog-hide>Хорошо</button>
       </div>
 
       <button class="modal__close" type="button" aria-label="Закрыть модальное окно" data-a11y-dialog-hide>
@@ -74,6 +72,126 @@
           <path d="M0.692304 0L17.9999 17.3077L17.3076 18L0 0.692307L0.692304 0Z" fill="currentColor" />
         </svg>
       </button>
+    </div>
+
+    <button type="button" class="modal__submit button" data-a11y-dialog-hide>Хорошо</button>
+  </div>
+</div>
+
+<div class="modal modal--delivery-payment" id="delivery-payment-modal" aria-hidden="true" data-modal-dialog>
+  <div class="modal__backdrop" tabindex="-1" data-a11y-dialog-hide></div>
+
+  <div class="modal__container" role="document">
+    <div class="modal__header">
+      <div class="modal__heading">
+        <h2 class="delivery-payment__title title-h1">Доставка и оплата</h2>
+      </div>
+
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно" data-a11y-dialog-hide>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.31955e-05 17.3077L17.3077 4.02664e-06L18 0.692312L0.692378 18L7.31955e-05 17.3077Z"
+            fill="currentColor" />
+          <path d="M0.692304 0L17.9999 17.3077L17.3076 18L0 0.692307L0.692304 0Z" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="delivery-payment__body">
+      <div class="delivery-payment__column">
+        <h3 class="delivery-payment__subtitle">Доставка</h3>
+
+        <div class="delivery-payment__intro">
+          <p>Мы готовы доставить изделия в любую точку России.</p>
+          <p>По Москве и Московской области доставим в день заказа, или на следующий день.</p>
+        </div>
+
+        <ul class="delivery-payment__list" aria-label="Условия доставки в модальном окне">
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              Самовывоз:
+            </div>
+            <div class="delivery-payment__value">
+              Бесплатно.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              Доставка по Москве и Московсой области:
+            </div>
+            <div class="delivery-payment__value">
+              При покупке от 50 000 р. — бесплатно.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              По Москве:
+            </div>
+            <div class="delivery-payment__value">
+              При покупке до 50 000 р. — 500 р.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              По Московской области:
+            </div>
+            <div class="delivery-payment__value">
+              При покупке до 50 000 р. — 1 500 р.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              По России и в другие страны:
+            </div>
+            <div class="delivery-payment__value">
+              По тарифам транспортных компаний.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              VIP доставка по миру:
+            </div>
+            <div class="delivery-payment__value">
+              Цену уточняйте у менеджера.
+            </div>
+          </li>
+        </ul>
+
+        <p class="delivery-payment__note">
+          Также мы осуществляем доставку в другие страны (вам необходимо уточнить у менеджера, сможем ли мы
+          осуществить доставку именно в вашу страну).
+        </p>
+      </div>
+
+      <div class="delivery-payment__column">
+        <h3 class="delivery-payment__subtitle">Оплата</h3>
+
+        <ul class="delivery-payment__list" aria-label="Способы оплаты в модальном окне">
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              Способы оплаты:
+            </div>
+            <div class="delivery-payment__value">
+              Наличный, безналичный расчет.<br>Банковская карта.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              Физические лица:
+            </div>
+            <div class="delivery-payment__value">
+              Наличными курьеру (Для Москвы и МО);<br>Банковскими картами;<br>По терминалу.
+            </div>
+          </li>
+          <li class="delivery-payment__item">
+            <div class="delivery-payment__label">
+              Юридические лица:
+            </div>
+            <div class="delivery-payment__value">
+              По выставленному счету.
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

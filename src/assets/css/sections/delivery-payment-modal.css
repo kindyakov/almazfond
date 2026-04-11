@@ -1,0 +1,40 @@
+.modal--delivery-payment {
+  padding: 24px;
+
+  .modal__container {
+    max-width: 1320px;
+    padding: 40px;
+
+    @media (max-width: 768px) {
+      padding-inline: 10px;
+    }
+  }
+
+  .modal__close {
+    @media (max-width: 640px) {
+      position: relative;
+      inset: auto;
+    }
+  }
+
+  .delivery-payment__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .delivery-payment__title {
+    color: #0e0e0f;
+  }
+
+  .delivery-payment__subtitle {
+    color: #0e0e0f;
+  }
+
+  .delivery-payment__intro,
+  .delivery-payment__note,
+  .delivery-payment__value {
+    color: #1f1f21;
+  }
+}

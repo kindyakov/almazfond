@@ -1,7 +1,6 @@
 import A11yDialog from 'a11y-dialog';
 
 const BODY_MODAL_OPEN_CLASS = 'is-modal-open';
-const MODAL_OPEN_CLASS = 'is-open';
 const DEFAULT_VARIANT = 'selection';
 const modalControllers = new Map();
 
@@ -26,12 +25,25 @@ export const initModal = () => {
   }
 
   const updateBodyState = () => {
-    const hasOpenModal = Array.from(modalControllers.keys()).some((id) =>
-      document.getElementById(id)?.classList.contains(MODAL_OPEN_CLASS)
+    const hasOpenModal = dialogElements.some(
+      (dialogElement) => dialogElement.getAttribute('aria-hidden') !== 'true'
     );
 
     document.body.classList.toggle(BODY_MODAL_OPEN_CLASS, hasOpenModal);
   };
+
+  dialogElements.forEach((dialogElement) => {
+    const dialog = new A11yDialog(dialogElement);
+    modalControllers.set(dialogElement.id, dialog);
+
+    dialog.on('show', () => {
+      updateBodyState();
+    });
+
+    dialog.on('hide', () => {
+      updateBodyState();
+    });
+  });
 
   const helpModalElement = document.getElementById('help-modal');
 
@@ -61,21 +73,6 @@ export const initModal = () => {
   };
 
   applyVariant(DEFAULT_VARIANT);
-  
-  dialogElements.forEach((dialogElement) => {
-    const dialog = new A11yDialog(dialogElement);
-    modalControllers.set(dialogElement.id, dialog);
-
-    dialog.on('show', () => {
-      dialogElement.classList.add(MODAL_OPEN_CLASS);
-      updateBodyState();
-    });
-
-    dialog.on('hide', () => {
-      dialogElement.classList.remove(MODAL_OPEN_CLASS);
-      updateBodyState();
-    });
-  });
 
   triggerElements.forEach((triggerElement) => {
     triggerElement.addEventListener('click', () => {

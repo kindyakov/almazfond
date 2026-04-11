@@ -62,7 +62,7 @@
   display: flex;
   column-gap: 24px;
 
-  @container (max-width: 578px) {
+  @container (max-width: 500px) {
     flex-direction: column;
     row-gap: 6px;
   }
@@ -76,7 +76,7 @@
 
   flex: 1 1 40%;
 
-  @container (min-width: 578px) {
+  @container (min-width: 500px) {
     padding-bottom: 12px;
     border-bottom: 1px solid #8c887e;
   }
