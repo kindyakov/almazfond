@@ -1,0 +1,48 @@
+.about-hero {
+  background: url('../../images/about-hero-bg.png') no-repeat center / cover;
+  padding-bottom: 40px;
+
+  .hero__description {
+    max-width: 312px;
+    top: 0;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 20px;
+  }
+}
+
+.about-hero__container {
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    min-height: 480px;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 420px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 290px;
+  }
+}
+
+.breadcrumbs {
+  background-color: transparent;
+}
+
+.about-hero__body {
+  margin-top: auto;
+}
+
+.about-hero__heading {
+  @media (max-width: 480px) {
+    margin-top: auto;
+  }
+}
+
+.about-hero__title {}

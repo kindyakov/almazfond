@@ -1,0 +1,78 @@
+.respect-gift {
+  padding-block: 100px;
+
+  @media (max-width: 768px) {
+    padding-block: 80px;
+  }
+}
+
+.respect-gift__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 20px;
+  border: 1px solid rgba(232, 225, 214, 0.4);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
+}
+
+.respect-gift__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+
+}
+
+.respect-gift__title {
+  text-align: left;
+}
+
+.respect-gift__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #b9b4a8;
+
+  span {
+    font-weight: 600;
+    color: #c6a46c;
+  }
+}
+
+.respect-gift__ctn {
+  margin-top: auto;
+  width: fit-content;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.respect-gift__img {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+}

@@ -29,6 +29,12 @@
 @import './sections/detail-selection.css';
 @import './sections/similar.css';
 @import './sections/delivery-payment.css';
+@import './sections/contacts.css';
+@import './sections/about-hero.css';
+@import './sections/art-school.css';
+@import './sections/full-cycle.css';
+@import './sections/artistry.css';
+@import './sections/respect-gift.css';
 
 @import './sections/modal.css';
 @import './sections/footer.css';

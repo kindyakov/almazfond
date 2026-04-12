@@ -13,6 +13,7 @@ import { initFilterAccordions } from './modules/filterAccordions.js';
 import { initFilterRangeSlider } from './modules/filterRangeSlider.js';
 import { initAsideSticky } from './modules/asideSticky.js';
 import { initSimilarSlider } from './modules/similarSlider.js';
+import { initContactsMaps } from './modules/contactsMap.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
@@ -30,4 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilterRangeSlider();
   initAsideSticky();
   initSimilarSlider();
+  initContactsMaps();
 });
