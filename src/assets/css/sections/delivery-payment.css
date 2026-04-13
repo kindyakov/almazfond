@@ -1,7 +1,7 @@
 .delivery-payment {
   padding: 60px 0 100px;
-  color: #b9b4a8;
-  background: #0e0e0f;
+  color: var(--brand-id-white-muted);
+  background: var(--brand-id-black);
 }
 
 .delivery-payment__body {

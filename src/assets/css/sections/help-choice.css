@@ -1,13 +1,13 @@
 .help-choice {
   background: #e8e1d6;
   padding: 40px 0;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
 }
 
 /* .help-choice__container {} */
 
 .help-choice__title {
-  color: #0e0e0f;
+  color: var(--brand-id-black);
 
   @media (max-width: 380px) {
     font-size: 28px;
@@ -20,7 +20,7 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
   margin-top: 24px;
 }
 

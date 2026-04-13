@@ -31,7 +31,7 @@
     height: 1px;
     bottom: 0;
     left: 0;
-    background: rgba(232, 225, 214, 0.4);
+    background: var(--brand-id-white-muted);
     user-select: none;
     pointer-events: none;
   }
@@ -112,7 +112,7 @@
   font-size: 20px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   transition: color 0.2s ease;
 }
 
@@ -120,7 +120,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   margin-top: 8px;
 }
 
@@ -139,9 +139,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   padding: 12px 20px;
-  background: #1f1f21;
+  background: var(--brand-id-black-secondary);
 
   @media (max-width: 1024px) {
     font-size: 13px;

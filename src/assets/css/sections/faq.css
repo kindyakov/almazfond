@@ -12,7 +12,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   margin-top: 40px;
 
   @media (max-width: 1024px) {
@@ -57,7 +57,7 @@
   font-size: 20px;
   line-height: 120%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   padding: 16px 0;
 
   &::after {
@@ -91,6 +91,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   padding: 0 0 16px;
 }

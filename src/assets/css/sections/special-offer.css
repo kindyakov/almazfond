@@ -1,6 +1,6 @@
 .special-offer {
   padding-top: 80px;
-  background: #0e0e0f;
+  background: var(--brand-id-black);
 }
 
 .special-offer__container {
@@ -60,7 +60,7 @@
 
 .special-offer__item {
 
-  background: #1f1f21;
+  background: var(--brand-id-black-secondary);
   padding: 12px;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@
   font-size: 24px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
 
   @media (max-width: 768px) {
     font-size: 18px;

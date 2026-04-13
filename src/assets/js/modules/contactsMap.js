@@ -5,14 +5,16 @@ const YANDEX_MAPS_DEFAULT_LANG = 'ru_RU';
 
 const MAP_CONFIG = {
   gallery: {
-    center: [37.647145, 55.710272],
-    marker: [37.647145, 55.710272],
+    center: [37.652822, 55.708303],
+    marker: [37.652822, 55.708303],
     zoom: 16,
+    link: 'https://yandex.ru/maps/-/CPvEeI6e',
   },
   production: {
-    center: [59.710752, 60.568514],
-    marker: [59.710752, 60.568514],
+    center: [55.175072, 59.671779],
+    marker: [55.175072, 59.671779],
     zoom: 15,
+    link: 'https://yandex.ru/maps/-/CPvEa2Nn',
   },
 };
 
@@ -38,6 +40,7 @@ const resolveMapOptions = (mapElement) => {
     center: parseCoordinates(mapElement.dataset.mapCenter, preset.center),
     marker: parseCoordinates(mapElement.dataset.mapMarker, preset.marker),
     zoom: Number.parseFloat(mapElement.dataset.mapZoom) || preset.zoom,
+    link: mapElement.dataset.mapLink || preset.link,
   };
 };
 
@@ -51,6 +54,7 @@ const getApiKey = (mapElements) => {
 const loadYandexMapsApi = async (apiKey) => {
   if (window.ymaps3) {
     await window.ymaps3.ready;
+
     return window.ymaps3;
   }
 
@@ -89,12 +93,16 @@ const loadYandexMapsApi = async (apiKey) => {
   return ymaps3;
 };
 
-const createMarkerElement = () => {
-  const markerElement = document.createElement('div');
+const createMarkerElement = (link) => {
+  const markerLink = document.createElement('a');
 
-  markerElement.className = 'contacts__map-marker';
+  markerLink.className = 'contacts__map-marker';
+  markerLink.href = link;
+  markerLink.target = '_blank';
+  markerLink.rel = 'noopener noreferrer';
+  markerLink.setAttribute('aria-label', 'Открыть адрес в Яндекс Картах');
 
-  return markerElement;
+  return markerLink;
 };
 
 const createMapInstance = async (ymaps3, mapElement) => {
@@ -111,14 +119,7 @@ const createMapInstance = async (ymaps3, mapElement) => {
 
   map.addChild(new YMapDefaultSchemeLayer());
   map.addChild(new YMapDefaultFeaturesLayer());
-  map.addChild(
-    new YMapMarker(
-      {
-        coordinates: options.marker,
-      },
-      createMarkerElement()
-    )
-  );
+  map.addChild(new YMapMarker({ coordinates: options.marker }, createMarkerElement(options.link)));
 
   mapElement.classList.add('contacts__map--ready');
 

@@ -57,11 +57,11 @@
   font-size: 80px;
   line-height: 80%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   text-align: center;
 
   span:last-child {
-    color: #c6a46c;
+    color: var(--brand-id-gold);
   }
 
 
@@ -103,7 +103,7 @@
 .hero__description {
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   font-weight: 400;
 
   @media (min-width: 1320px) {

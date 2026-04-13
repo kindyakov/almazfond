@@ -78,8 +78,8 @@
   height: 48px;
   flex-shrink: 0;
   border: 0;
-  background: #c6a46c;
-  color: #0e0e0f;
+  background: var(--brand-id-gold);
+  color: var(--brand-id-black);
   cursor: pointer;
   transition:
     background 0.3s ease,
@@ -88,7 +88,7 @@
 
   &:hover,
   &:focus-visible {
-    background: #8c6b3e;
+    background: var(--brand-id-gold-secondary);
     color: #e8e1d6;
     transform: translateY(-1px);
   }
@@ -112,17 +112,17 @@
   text-transform: uppercase;
 
   span:first-child {
-    color: #0e0e0f;
+    color: var(--brand-id-black);
   }
 
   span:last-child {
-    color: #8c6b3e;
+    color: var(--brand-id-gold-secondary);
   }
 }
 
 .modal__title--single {
   display: block;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
 }
 
 .modal__text {
@@ -131,7 +131,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 
   b {
     font-weight: 700;

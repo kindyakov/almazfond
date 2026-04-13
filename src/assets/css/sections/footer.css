@@ -1,5 +1,5 @@
 .footer {
-  background: #1f1f21;
+  background: var(--brand-id-black-secondary);
   padding: 60px 0px 40px;
 
   @media (max-width: 680px) {
@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 80px;
-  border-bottom: 1px solid rgba(232, 225, 214, 0.4);
+  border-bottom: 1px solid var(--brand-id-white-muted);
   padding-bottom: 28px;
 
   @media (max-width: 1200px) {
@@ -65,7 +65,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 140%;
-    color: #b9b4a8;
+    color: var(--brand-id-white-muted);
   }
 
   address {
@@ -74,7 +74,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
-    color: #e7e4de;
+    color: var(--brand-id-white-muted);
   }
 }
 
@@ -83,7 +83,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 140%;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   transition: color 0.2s ease;
 
   &:hover {
@@ -126,7 +126,7 @@
   font-size: 20px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #c6a46c;
+  color: var(--brand-id-gold);
 }
 
 .footer__nav {
@@ -141,7 +141,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 140%;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   transition: color 0.2s ease;
 
   &:hover {
@@ -165,10 +165,10 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 140%;
-    color: #b9b4a8;
+    color: var(--brand-id-white-muted);
 
     span {
-      color: #c6a46c;
+      color: var(--brand-id-gold);
     }
   }
 

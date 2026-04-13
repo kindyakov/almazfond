@@ -126,7 +126,7 @@ h6 {
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
   border: 1px solid var(--brand-id-gold);
   transition: 0.3s ease;
   white-space: nowrap;
@@ -157,7 +157,7 @@ h6 {
 
   &:not([disabled]) {
     &:hover {
-      color: #0e0e0f;
+      color: var(--brand-id-black);
       background: var(--brand-id-gold);
     }
   }
@@ -170,7 +170,7 @@ h6 {
   font-size: 48px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
 
   span {
     color: var(--brand-id-gold);
@@ -188,7 +188,7 @@ h6 {
   line-height: 100%;
   text-transform: uppercase;
   text-align: center;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
 
   span {
     color: var(--brand-id-gold);
@@ -209,13 +209,13 @@ h6 {
 }
 
 .input {
-  background: #1f1f21;
+  background: var(--brand-id-black-secondary);
   padding: 20px;
 
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   width: 100%;
 
   &:focus {
@@ -238,7 +238,7 @@ h6 {
 }
 
 .input-checkbox:checked+.checkbox {
-  border-color: #8c6b3e;
+  border-color: var(--brand-id-gold-secondary);
 
   svg {
     opacity: 1;
@@ -246,7 +246,7 @@ h6 {
 }
 
 .checkbox {
-  border: 1px solid #1f1f21;
+  border: 1px solid var(--brand-id-black-secondary);
   width: 24px;
   height: 24px;
   flex-shrink: 0;
@@ -254,7 +254,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8c6b3e;
+  color: var(--brand-id-gold-secondary);
   outline: none;
 
   svg {
@@ -267,10 +267,10 @@ h6 {
   font-weight: 400;
   font-size: 12px;
   line-height: 140%;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 
   a {
-    color: #8c6b3e;
+    color: var(--brand-id-gold-secondary);
 
     &:hover {
       text-decoration: underline;

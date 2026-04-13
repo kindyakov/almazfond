@@ -19,7 +19,7 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   margin-top: 12px;
 
   @media (max-width: 786px) {
@@ -64,14 +64,14 @@
   flex-direction: column;
   gap: 12px;
   padding-block: 40px;
-  border-bottom: 1px solid rgba(232, 225, 214, 0.4);
+  border-bottom: 1px solid var(--brand-id-white-muted);
   transition: color 0.2s ease;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
 
   position: relative;
 
   &:first-child {
-    border-top: 1px solid rgba(232, 225, 214, 0.4);
+    border-top: 1px solid var(--brand-id-white-muted);
   }
 
   svg {
@@ -83,7 +83,7 @@
   }
 
   &:hover {
-    color: #c6a46c;
+    color: var(--brand-id-gold);
 
     svg {
       transform: rotate(225deg);

@@ -33,13 +33,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #c6a46c;
-  color: #c6a46c;
+  border: 1px solid var(--brand-id-gold);
+  color: var(--brand-id-gold);
   transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 
   &:hover {
-    background: #c6a46c;
-    color: #0e0e0f;
+    background: var(--brand-id-gold);
+    color: var(--brand-id-black);
   }
 }
 
@@ -167,7 +167,7 @@
   font-size: 20px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
   transition: 0.2s ease;
 
   @container (width < 190px) {
@@ -180,7 +180,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   transition: 0.2s ease;
 
   @container (width < 180px) {
@@ -194,7 +194,7 @@
 
 .showcase__card-arrow {
   flex-shrink: 0;
-  color: #e7e4de;
+  color: var(--brand-id-white-muted);
 
   svg {
     transform: rotate(135deg);

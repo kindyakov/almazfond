@@ -25,7 +25,7 @@
   top: -7px;
   border: 1px solid var(--brand-id-gold);
   border-radius: 50%;
-  background: #0e0e0f;
+  background: var(--brand-id-black);
   box-shadow: none;
   cursor: grab;
   transition: 0.2s ease;
@@ -39,7 +39,7 @@
   }
 
   @media (max-width: 900px) {
-    background: #1f1f21;
+    background: var(--brand-id-black-secondary);
   }
 }
 

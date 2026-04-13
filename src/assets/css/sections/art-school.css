@@ -52,7 +52,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #b9b4a8;
+  color: var(--brand-id-white-muted);
   gap: 16px;
   max-width: 536px;
 }

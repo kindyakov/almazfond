@@ -25,16 +25,16 @@
   }
 
   .delivery-payment__title {
-    color: #0e0e0f;
+    color: var(--brand-id-black);
   }
 
   .delivery-payment__subtitle {
-    color: #0e0e0f;
+    color: var(--brand-id-black);
   }
 
   .delivery-payment__intro,
   .delivery-payment__note,
   .delivery-payment__value {
-    color: #1f1f21;
+    color: var(--brand-id-black-secondary);
   }
 }

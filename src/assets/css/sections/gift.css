@@ -1,7 +1,7 @@
 .gift {
   padding-block: 60px;
   background: #e8e1d6;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 
   @media (max-width: 768px) {
     padding-block: 40px;
@@ -23,7 +23,7 @@
 }
 
 .gift__title {
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
   text-align: left;
   font-weight: 500;
   flex: 1 1 50%;
@@ -39,7 +39,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 }
 
 .gift__content {
@@ -95,14 +95,14 @@
   font-size: 24px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
 }
 
 .gift__article--text {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 }
 
 .gift__cta {

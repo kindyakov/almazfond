@@ -32,18 +32,26 @@ export const initModal = () => {
     document.body.classList.toggle(BODY_MODAL_OPEN_CLASS, hasOpenModal);
   };
 
+  const scheduleBodyStateUpdate = () => {
+    window.requestAnimationFrame(() => {
+      updateBodyState();
+    });
+  };
+
   dialogElements.forEach((dialogElement) => {
     const dialog = new A11yDialog(dialogElement);
     modalControllers.set(dialogElement.id, dialog);
 
     dialog.on('show', () => {
-      updateBodyState();
+      scheduleBodyStateUpdate();
     });
 
     dialog.on('hide', () => {
-      updateBodyState();
+      scheduleBodyStateUpdate();
     });
   });
+
+  updateBodyState();
 
   const helpModalElement = document.getElementById('help-modal');
 

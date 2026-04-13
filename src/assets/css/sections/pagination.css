@@ -20,13 +20,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #1F1F21;
+  background: var(--brand-id-black-secondary);
 
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  color: #b9b4a8;
-  border: 1px solid #1F1F21;
+  color: var(--brand-id-white-muted);
+  border: 1px solid var(--brand-id-black-secondary);
   transition: border 0.2s ease;
 
   &:hover {

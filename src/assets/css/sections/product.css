@@ -109,7 +109,7 @@
 
   &.is-active,
   &:hover {
-    border: 1px solid rgba(232, 225, 214, 0.4);
+    border: 1px solid var(--brand-id-white-muted);
   }
 }
 
@@ -118,7 +118,7 @@
   flex-direction: column;
   padding: 20px;
   background: #e8e1d6;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
   container-type: inline-size;
 
   @media (max-width: 480px) {
@@ -128,7 +128,7 @@
 
 .product__eyebrow {
   padding: 8px 10px;
-  background: #1f1f21;
+  background: var(--brand-id-black-secondary);
 
   font-weight: 400;
   font-size: 16px;
@@ -139,7 +139,7 @@
 
 .product__title {
   text-align: left;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
   margin-top: 24px;
 
   @media (max-width: 480px) {
@@ -153,7 +153,7 @@
   font-size: 32px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #8c6b3e;
+  color: var(--brand-id-gold-secondary);
   margin-top: 24px;
 
   @media (max-width: 480px) {
@@ -178,7 +178,7 @@
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
   padding: 20px;
   min-height: 64px;
 
@@ -197,7 +197,7 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 
   @media (max-width: 480px) {
     padding: 10px;
@@ -254,7 +254,7 @@
 }
 
 .product__description--text {
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 
   p {
     font-weight: 400;
@@ -267,7 +267,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #8c6b3e;
+  color: var(--brand-id-gold-secondary);
   text-decoration: underline;
   text-underline-offset: 6px;
 
@@ -296,5 +296,5 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #1f1f21;
+  color: var(--brand-id-black-secondary);
 }

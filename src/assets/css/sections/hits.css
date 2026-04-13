@@ -28,8 +28,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #c6a46c;
-  color: #c6a46c;
+  border: 1px solid var(--brand-id-gold);
+  color: var(--brand-id-gold);
   transition: 0.3s ease;
 
   svg {
@@ -37,8 +37,8 @@
   }
 
   &:hover {
-    background: #c6a46c;
-    color: #0e0e0f;
+    background: var(--brand-id-gold);
+    color: var(--brand-id-black);
   }
 }
 
@@ -101,7 +101,7 @@
   font-size: 18px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #0e0e0f;
+  color: var(--brand-id-black);
 }
 
 .hits__price {
@@ -109,7 +109,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 100%;
-  color: #8c6b3e;
+  color: var(--brand-id-gold-secondary);
   margin-top: auto;
 }
 
