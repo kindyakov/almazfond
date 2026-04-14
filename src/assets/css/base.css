@@ -16,7 +16,7 @@ body {
   min-width: 320px;
   font-family: var(--font-family);
   color: var(--brand-id-white);
-  background: var(--brand-id-black);
+
 
   @media (max-width: 480px) {
     padding-bottom: 70px;
@@ -81,6 +81,7 @@ h6 {
 .main {
   flex: auto;
   transition: transform 0.4s ease;
+  background: var(--brand-id-black);
 
   &.is-open-menu,
   &.is-open-search {

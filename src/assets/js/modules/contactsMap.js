@@ -95,12 +95,20 @@ const loadYandexMapsApi = async (apiKey) => {
 
 const createMarkerElement = (link) => {
   const markerLink = document.createElement('a');
+  const markerIcon = document.createElement('span');
+  const markerWork = document.createElement('span');
 
   markerLink.className = 'contacts__map-marker';
   markerLink.href = link;
   markerLink.target = '_blank';
   markerLink.rel = 'noopener noreferrer';
   markerLink.setAttribute('aria-label', 'Открыть адрес в Яндекс Картах');
+
+  markerIcon.className = 'contacts__map-marker-icon';
+  markerWork.className = 'contacts__map-marker-work';
+
+  markerIcon.append(markerWork);
+  markerLink.append(markerIcon);
 
   return markerLink;
 };
