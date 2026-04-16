@@ -85,19 +85,22 @@
   margin-top: 24px;
   overflow: hidden;
 
+  .swiper-wrapper {
+    padding: 1px;
+  }
+
   @media (max-width: 480px) {
     margin-top: 12px;
   }
 }
 
 .product-gallery__thumb {
-  border: 1px solid transparent;
-  padding: 0;
   width: 88px;
   aspect-ratio: 1;
   transition: border-color 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
   flex-shrink: 0;
+  margin-bottom: 1px;
 
   img {
     width: 100%;
@@ -109,7 +112,7 @@
 
   &.is-active,
   &:hover {
-    border: 1px solid var(--brand-id-white-muted);
+    outline: 1px solid var(--brand-id-white-muted) !important;
   }
 }
 

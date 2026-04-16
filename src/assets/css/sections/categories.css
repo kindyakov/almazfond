@@ -52,10 +52,6 @@
     .categories__card--title {
       color: var(--brand-id-gold)
     }
-
-    .categories__card--img img {
-      transform: scale(1.1);
-    }
   }
 }
 
@@ -142,6 +138,13 @@
   color: var(--brand-id-white-muted);
   padding: 12px 20px;
   background: var(--brand-id-black-secondary);
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: var(--brand-id-gold);
+    color: var(--brand-id-gold);
+  }
 
   @media (max-width: 1024px) {
     font-size: 13px;
