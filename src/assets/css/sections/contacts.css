@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 144px;
   padding: 24px 28px;
-  background: #e8e1d6;
+  background: var(--brand-id-gold-light);
   position: relative;
 
   &::before {

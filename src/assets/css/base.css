@@ -133,8 +133,7 @@ h6 {
   white-space: nowrap;
 
   &:hover {
-    color: var(--brand-id-gold);
-    background: transparent;
+    background: #D3B37A;
   }
 }
 

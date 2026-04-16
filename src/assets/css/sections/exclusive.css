@@ -19,7 +19,7 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: var(--brand-id-white-muted);
+  color: var(--brand-id-white-tertiary);
 }
 
 .exclusive__content {
@@ -53,6 +53,10 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    max-width: 340px;
+  }
 }
 
 .exclusive__card-img {
@@ -82,7 +86,7 @@
   align-items: center;
   gap: 12px;
   padding: 40px;
-  border: 1px solid var(--brand-id-white-muted);
+  border: 1px solid rgba(232, 225, 214, 0.4);
   border-radius: 200px 200px 0 0;
   min-height: 215px;
   justify-content: flex-end;
@@ -114,6 +118,6 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: var(--brand-id-white-muted);
+  color: var(--brand-id-white-tertiary);
   max-width: 310px;
 }

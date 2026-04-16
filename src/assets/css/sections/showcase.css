@@ -180,7 +180,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: var(--brand-id-white-muted);
+  color: var(--brand-id-white-tertiary);
   transition: 0.2s ease;
 
   @container (width < 180px) {

@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   padding: 20px;
-  border: 1px solid var(--brand-id-white-muted);
+  border: 1px solid rgba(232, 225, 214, 0.4);
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

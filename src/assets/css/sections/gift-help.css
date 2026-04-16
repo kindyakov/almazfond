@@ -32,7 +32,7 @@
 }
 
 .gift-help__panel {
-  background: #e8e1d6;
+  background: var(--brand-id-gold-light);
   padding: 20px;
   display: flex;
   flex-direction: column;

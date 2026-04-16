@@ -1,6 +1,6 @@
 .detail-selection {
   padding: 60px 0 70px 0;
-  background: #e8e1d6;
+  background: var(--brand-id-gold-light);
   position: relative;
 
   @media (max-width: 768px) {

@@ -29,7 +29,7 @@
   }
 }
 
-.footer__item {}
+/* .footer__item {} */
 
 .footer__logo {
   img {
@@ -65,7 +65,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 140%;
-    color: var(--brand-id-white-muted);
+    color: var(--brand-id-white-tertiary);
   }
 
   address {

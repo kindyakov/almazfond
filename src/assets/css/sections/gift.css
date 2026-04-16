@@ -1,6 +1,6 @@
 .gift {
   padding-block: 60px;
-  background: #e8e1d6;
+  background: var(--brand-id-gold-light);
   color: var(--brand-id-black-secondary);
 
   @media (max-width: 768px) {
@@ -23,13 +23,14 @@
 }
 
 .gift__title {
-  color: var(--brand-id-black-secondary);
+  color: #0e0e0f;
   text-align: left;
   font-weight: 500;
   flex: 1 1 50%;
 
   span {
     display: block;
+    color: #8c6b3e;
   }
 }
 

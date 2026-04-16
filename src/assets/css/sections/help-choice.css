@@ -1,5 +1,5 @@
 .help-choice {
-  background: #e8e1d6;
+  background: var(--brand-id-gold-light);
   padding: 40px 0;
   color: var(--brand-id-black);
 }

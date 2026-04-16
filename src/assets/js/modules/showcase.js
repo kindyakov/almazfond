@@ -439,7 +439,7 @@ export const initShowcaseSlider = () => {
       modules: [Navigation],
       initialSlide: Math.min(2, cardElements.length - 1),
       slidesPerView: 1,
-      speed: 650,
+      speed: 1200,
       grabCursor: true,
       watchOverflow: true,
       watchSlidesProgress: true,

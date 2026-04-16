@@ -5,6 +5,7 @@
   .hero__description {
     max-width: 312px;
     top: 0;
+    color: var(--brand-id-white-muted);
   }
 
   @media (max-width: 480px) {
@@ -45,4 +46,4 @@
   }
 }
 
-.about-hero__title {}
+/* .about-hero__title {} */

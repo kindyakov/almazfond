@@ -15,7 +15,7 @@
   font-size: 16px;
   line-height: 140%;
   text-align: center;
-  color: var(--brand-id-white-muted);
+  color: var(--brand-id-white-tertiary);
   margin-top: 12px;
 }
 
@@ -23,8 +23,8 @@
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border-bottom: 1px solid var(--brand-id-white-muted);
-  border-top: 1px solid var(--brand-id-white-muted);
+  border-bottom: 1px solid rgba(232, 225, 214, 0.4);
+  border-top: 1px solid rgba(232, 225, 214, 0.4);
 
   img {
     user-select: none;
@@ -61,13 +61,13 @@
 
   &:nth-child(3),
   &:nth-child(4) {
-    border-right: 1px solid var(--brand-id-white-muted);
+    border-right: 1px solid rgba(232, 225, 214, 0.4);
   }
 
   &:nth-child(3),
   &:nth-child(4),
   &:nth-child(5) {
-    border-top: 1px solid var(--brand-id-white-muted);
+    border-top: 1px solid rgba(232, 225, 214, 0.4);
   }
 
   @media (max-width: 1024px) {
@@ -158,5 +158,5 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: var(--brand-id-white-muted);
+  color: var(--brand-id-white-tertiary);
 }

@@ -1,13 +1,8 @@
 .modal--delivery-payment {
   padding: 24px;
 
-  .modal__container {
+  .modal__body {
     max-width: 1320px;
-    padding: 40px;
-
-    @media (max-width: 768px) {
-      padding-inline: 10px;
-    }
   }
 
   .modal__close {
@@ -36,5 +31,11 @@
   .delivery-payment__note,
   .delivery-payment__value {
     color: var(--brand-id-black-secondary);
+  }
+
+  @media (max-width: 480px) {
+    .modal__container {
+      padding-block: 40px;
+    }
   }
 }

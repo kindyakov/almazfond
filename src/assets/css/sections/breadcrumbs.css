@@ -8,7 +8,7 @@
   background: var(--brand-id-black);
 
   a {
-    color: var(--brand-id-white-muted);
+    color: var(--brand-id-white-tertiary);
 
     &:hover {
       color: var(--brand-id-gold);
