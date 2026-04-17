@@ -3,12 +3,23 @@
   background: var(--brand-id-black);
 }
 
+.special-offer__wrapper {
+  background: url('../../images/special-offer-bg.png') no-repeat bottom / contain;
+
+  @media (max-width: 1440px) {
+    background: url('../../images/special-offer-bg-n.png') no-repeat bottom / contain;
+  }
+
+  @media (max-width: 480px) {
+    background: url('../../images/special-offer-bg-mobile.png') no-repeat top / contain;
+  }
+}
+
 .special-offer__container {
-  height: 960px;
-  background: url('../../images/special-offer-bg.png') no-repeat center / cover;
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 960px;
 
   @media (max-width: 1200px) {
     height: 800px;
@@ -16,10 +27,6 @@
 
   @media (max-width: 920px) {
     height: auto;
-  }
-
-  @media (max-width: 480px) {
-    background: url('../../images/special-offer-bg-mobile.png') no-repeat top / contain;
   }
 }
 
@@ -43,7 +50,7 @@
   flex: 1 1 auto;
 
   @media (max-width: 920px) {
-    margin-top: 160px;
+    margin-top: 350px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -51,6 +58,11 @@
 
   @media (max-width: 768px) {
     gap: 12px;
+    margin-top: 300px;
+  }
+
+  @media (max-width: 640px) {
+    margin-top: 200px;
   }
 
   @media (max-width: 480px) {

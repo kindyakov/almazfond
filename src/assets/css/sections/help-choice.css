@@ -9,6 +9,10 @@
 .help-choice__title {
   color: var(--brand-id-black);
 
+  span {
+    color: #8c6b3e;
+  }
+
   @media (max-width: 380px) {
     font-size: 28px;
   }

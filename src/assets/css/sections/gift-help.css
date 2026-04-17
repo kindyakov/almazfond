@@ -51,6 +51,10 @@
 .gift-help__title {
   color: var(--brand-id-black);
   text-align: left;
+
+  span {
+    color: #8c6b3e;
+  }
 }
 
 .gift-help__description {

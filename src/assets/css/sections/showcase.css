@@ -115,6 +115,16 @@
     width var(--showcase-transition-duration) ease;
 
   container-type: inline-size;
+
+  &:hover {
+    .showcase__card-title {
+      color: var(--brand-id-gold);
+    }
+
+    .showcase__card-arrow {
+      color: var(--brand-id-gold);
+    }
+  }
 }
 
 .showcase__slider.swiper-pointer-down .showcase__scene {
@@ -195,6 +205,7 @@
 .showcase__card-arrow {
   flex-shrink: 0;
   color: var(--brand-id-white-muted);
+  transition: 0.2s ease;
 
   svg {
     transform: rotate(135deg);
