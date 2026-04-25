@@ -48,6 +48,10 @@ const importModuleWithSliderStub = async () => {
             currentValues = nextValues;
             handlers.get('update')?.(nextValues);
           },
+          trigger(eventName, nextValues) {
+            currentValues = nextValues;
+            handlers.get(eventName)?.(nextValues);
+          },
           on(eventName, handler) {
             handlers.set(eventName, handler);
             if (eventName === 'update') {
@@ -111,4 +115,48 @@ test('window.filterRangeSlider exposes getValue and setValue for initialized ran
   assert.equal(fromInput.value, '2 500');
   assert.equal(toInput.value, '75 000');
   assert.deepEqual(changes, [{ rangeId: 'price', value: [2500, 75000] }]);
+});
+
+test('window.filterRangeSlider notifies on user slider changes', async () => {
+  const sliderElement = new FakeElement();
+  const fromInput = new FakeElement();
+  const toInput = new FakeElement();
+  const rangeElement = new FakeElement({
+    dataset: {
+      filterRange: 'price',
+      filterRangeMin: '0',
+      filterRangeMax: '100000',
+      filterRangeStartFrom: '1000',
+      filterRangeStartTo: '90000'
+    },
+    selectorMap: {
+      '[data-filter-range-slider]': [sliderElement],
+      '[data-filter-range-input]': [fromInput, toInput]
+    }
+  });
+
+  global.window = {
+    clearTimeout,
+    setTimeout
+  };
+  global.document = {
+    querySelector(selector) {
+      return selector === '[data-filter-range="price"]' ? rangeElement : null;
+    },
+    querySelectorAll(selector) {
+      return selector === '[data-filter-range]' ? [rangeElement] : [];
+    }
+  };
+
+  const { initFilterRangeSlider } = await importModuleWithSliderStub();
+  initFilterRangeSlider();
+
+  const changes = [];
+  window.filterRangeSlider.onChange = (rangeId, value) => {
+    changes.push({ rangeId, value });
+  };
+
+  sliderElement.noUiSlider.trigger('change', [5000, 45000]);
+
+  assert.deepEqual(changes, [{ rangeId: 'price', value: [5000, 45000] }]);
 });

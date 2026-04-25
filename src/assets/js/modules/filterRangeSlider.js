@@ -103,6 +103,7 @@ const createFilterRangeSliderApi = () => ({
 });
 
 const initRange = (rangeElement) => {
+  const rangeId = getRangeId(rangeElement);
   const sliderElement = rangeElement.querySelector('[data-filter-range-slider]');
   const inputs = Array.from(rangeElement.querySelectorAll('[data-filter-range-input]'));
 
@@ -149,6 +150,10 @@ const initRange = (rangeElement) => {
     syncInputs(values.map((value) => parseFormattedNumber(value, 0)));
   });
 
+  sliderElement.noUiSlider.on('change', (values) => {
+    notifyRangeChange(rangeId, values.map((value) => parseFormattedNumber(value, 0)));
+  });
+
   const applyInputsToSlider = () => {
     const sliderValues = getCurrentSliderValues(sliderElement);
     const fromValue = fromInput.dataset.filterRangeRawValue || onlyDigits(fromInput.value);
@@ -166,6 +171,7 @@ const initRange = (rangeElement) => {
 
     if (normalizedFrom !== currentValues[0] || normalizedTo !== currentValues[1]) {
       sliderElement.noUiSlider.set([normalizedFrom, normalizedTo]);
+      notifyRangeChange(rangeId, [normalizedFrom, normalizedTo]);
     }
   };
 
