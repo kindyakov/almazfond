@@ -3,7 +3,7 @@
   padding-block: 32px;
   display: flex;
   position: relative;
-  background: url('../../images/hero-bg.png') no-repeat top / contain;
+  background: var(--hero-bg, url('../../images/hero-bg.png')) no-repeat top / contain;
 
   &::before {
     content: '';
@@ -23,7 +23,7 @@
 
   @media (max-width: 480px) {
     min-height: 0;
-    background: url('../../images/hero-bg-mobile.png') no-repeat top / contain;
+    background: var(--hero-bg-mobile, url('../../images/hero-bg-mobile.png')) no-repeat top / contain;
   }
 }
 

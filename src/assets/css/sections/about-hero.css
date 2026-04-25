@@ -1,5 +1,5 @@
 .about-hero {
-  background: url('../../images/about-hero-bg.png') no-repeat center / cover;
+  background: var(--about-hero-bg, url('../../images/about-hero-bg.png')) no-repeat center / cover;
   padding-bottom: 40px;
 
   .hero__description {

@@ -273,7 +273,7 @@
   position: absolute;
   inset: 0;
   display: block;
-  background: url('../../images/marker.svg') no-repeat center / contain;
+  background: var(--contacts-map-marker-icon, url('../../images/marker.svg')) no-repeat center / contain;
   z-index: 1;
 }
 
@@ -284,6 +284,6 @@
   top: 14px;
   left: 18px;
   background: var(--brand-id-white);
-  mask: url('../../images/work.svg') no-repeat center / contain;
-  -webkit-mask: url('../../images/work.svg') no-repeat center / contain;
+  mask: var(--contacts-map-marker-work-mask, url('../../images/work.svg')) no-repeat center / contain;
+  -webkit-mask: var(--contacts-map-marker-work-mask, url('../../images/work.svg')) no-repeat center / contain;
 }
