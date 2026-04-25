@@ -14,6 +14,7 @@ import { initFilterRangeSlider } from './modules/filterRangeSlider.js';
 import { initAsideSticky } from './modules/asideSticky.js';
 import { initSimilarSlider } from './modules/similarSlider.js';
 import { initContactsMaps } from './modules/contactsMap.js';
+import { initProductDescriptionToggle } from './modules/productDescriptionToggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSubcategoriesSlider();
   initFilterAccordions();
   initFilterRangeSlider();
+  initProductDescriptionToggle();
   initAsideSticky();
   initSimilarSlider();
   initContactsMaps();

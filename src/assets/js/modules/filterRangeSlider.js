@@ -1,6 +1,7 @@
 import noUiSlider from 'nouislider';
 
 const RANGE_INPUT_DEBOUNCE_MS = 250;
+const DEFAULT_RANGE_ID = 'default';
 const numberFormatter = new Intl.NumberFormat('ru-RU');
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
@@ -22,11 +23,84 @@ const onlyDigits = (value) => String(value ?? '').replace(/[^\d]/g, '');
 
 const getCurrentSliderValues = (sliderElement) => sliderElement.noUiSlider.get(true);
 
+const getRangeId = (rangeElement) => rangeElement.dataset.filterRange || DEFAULT_RANGE_ID;
+
+const getRangeElement = (rangeId) =>
+  Array.from(document.querySelectorAll('[data-filter-range]')).find(
+    (rangeElement) => getRangeId(rangeElement) === rangeId
+  );
+
+const getRangeParts = (rangeId) => {
+  const rangeElement = getRangeElement(rangeId);
+
+  if (!rangeElement) {
+    console.warn(`[filterRangeSlider] Не найден диапазон с id="${rangeId}"`);
+    return null;
+  }
+
+  const sliderElement = rangeElement.querySelector('[data-filter-range-slider]');
+
+  if (!sliderElement?.noUiSlider) {
+    console.warn(`[filterRangeSlider] Диапазон id="${rangeId}" не инициализирован`);
+    return null;
+  }
+
+  return { rangeElement, sliderElement };
+};
+
 const renderInputValue = (input, value) => {
   const rawValue = String(Math.trunc(Number(value) || 0));
   input.dataset.filterRangeRawValue = rawValue;
   input.value = formatNumber(rawValue);
 };
+
+const notifyRangeChange = (rangeId, value) => {
+  if (typeof window.filterRangeSlider?.onChange === 'function') {
+    window.filterRangeSlider.onChange(rangeId, value);
+  }
+};
+
+const createFilterRangeSliderApi = () => ({
+  /**
+   * Callback при изменении значения через публичный API.
+   * @type {function|null}
+   */
+  onChange: null,
+
+  setValue(rangeId, value) {
+    const parts = getRangeParts(rangeId);
+
+    if (!parts) {
+      return;
+    }
+
+    if (!Array.isArray(value) || value.length !== 2) {
+      console.warn(`[filterRangeSlider] Значение для id="${rangeId}" должно быть массивом [from, to]`);
+      return;
+    }
+
+    const { rangeElement, sliderElement } = parts;
+    const min = toNumber(rangeElement.dataset.filterRangeMin, 0);
+    const rawMax = toNumber(rangeElement.dataset.filterRangeMax, min + 1000);
+    const max = Math.max(rawMax, min + 1);
+    const from = clamp(toNumber(value[0], min), min, max);
+    const to = clamp(toNumber(value[1], max), min, max);
+    const normalizedValue = [Math.min(from, to), Math.max(from, to)];
+
+    sliderElement.noUiSlider.set(normalizedValue);
+    notifyRangeChange(rangeId, normalizedValue);
+  },
+
+  getValue(rangeId) {
+    const parts = getRangeParts(rangeId);
+
+    if (!parts) {
+      return null;
+    }
+
+    return getCurrentSliderValues(parts.sliderElement).map((value) => parseFormattedNumber(value, 0));
+  }
+});
 
 const initRange = (rangeElement) => {
   const sliderElement = rangeElement.querySelector('[data-filter-range-slider]');
@@ -127,6 +201,8 @@ export function initFilterRangeSlider() {
   if (!rangeElements.length) {
     return;
   }
+
+  window.filterRangeSlider = window.filterRangeSlider || createFilterRangeSliderApi();
 
   rangeElements.forEach(initRange);
 }
