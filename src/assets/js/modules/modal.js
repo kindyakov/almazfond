@@ -76,7 +76,12 @@ export const initModal = () => {
     }
 
     if (submitElement) {
-      submitElement.textContent = variant.submit;
+      const span = submitElement.querySelector('span');
+      if (span) {
+        span.textContent = variant.submit;
+      } else {
+        submitElement.textContent = variant.submit;
+      }
     }
   };
 

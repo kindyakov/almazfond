@@ -135,6 +135,32 @@ h6 {
   &:hover {
     background: #D3B37A;
   }
+
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+
+    & > span {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .custom-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -12.5px;
+      margin-top: -12.5px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .custom-loader {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
 }
 
 .button-transparent {

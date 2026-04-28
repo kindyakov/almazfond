@@ -2,7 +2,7 @@ import IMask from 'imask';
 import JustValidate from 'just-validate';
 import { hideModal, showModal } from './modal.js';
 
-const REQUEST_ENDPOINT = '';
+const REQUEST_ENDPOINT = window.ALMAZFOND_API?.endpoint || '';
 const SUCCESS_MODAL_ID = 'success-modal';
 const PHONE_MASK = '+{7} (000) 000-00-00';
 
@@ -77,7 +77,7 @@ export const initForms = () => {
       .onSuccess(async (event) => {
         event?.preventDefault();
 
-        submitButton.disabled = true;
+        submitButton.classList.add('is-loading');
 
         try {
           await submitRequest(new FormData(form));
@@ -94,7 +94,7 @@ export const initForms = () => {
 
           showModal(SUCCESS_MODAL_ID);
         } finally {
-          submitButton.disabled = false;
+          submitButton.classList.remove('is-loading');
         }
       });
   });
