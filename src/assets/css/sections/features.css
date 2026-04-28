@@ -33,7 +33,7 @@
 }
 
 .features__card {
-  background: var(--brand-id-black-secondary) url('../../images/features-card-bg.png') center/cover no-repeat;
+  background: var(--brand-id-black-secondary) url('../../images/features-card-bg.webp') center/cover no-repeat;
   padding: 20px;
   display: flex;
   flex-direction: column;

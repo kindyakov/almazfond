@@ -2,7 +2,7 @@
   <div class="header__container container">
     <div class="header__content">
       <a class="header__logo" href="/" aria-label="Almazfond">
-        <img class="header__logo-image" src="../assets/images/logo-desktop.png" alt="Almazfond" />
+        <img class="header__logo-image" src="../assets/images/logo-desktop.webp" alt="Almazfond" />
       </a>
 
       <nav class="header__nav" aria-label="Основная навигация" data-da=".header-menu__content,900,first">
@@ -24,10 +24,11 @@
             <label class="visually-hidden" for="site-search">Поиск</label>
             <input id="site-search" class="header__search-input" type="search" name="q"
               placeholder="Что хотите найти?" />
-            <button class="header__search-submit" type="submit" aria-label="Найти">
+            <button class="header__search-submit" type="submit" aria-label="Найти" data-header-search-button>
               <svg width="24" height="24" aria-hidden="true">
                 <use href="#icon-search"></use>
               </svg>
+              <div class="custom-loader" style="width: 20px; height: 20px; border-width: 3px;"></div>
             </button>
           </form>
         </div>
@@ -35,7 +36,16 @@
         <div class="header__search-results">
           <a href="" class="header__search-result">
             <div class="header__search-result-image">
-              <img src="../assets/images/search-result-product.png" alt="Изображение товара" width="50" height="50" />
+              <img src="../assets/images/search-result-product.webp" alt="Изображение товара" width="50" height="50" />
+            </div>
+            <div class="header__search-result-info">
+              <h4 class="header__search-result-name">Конфетница «Десерт»</h4>
+              <p class="header__search-result-description">Латунь, золото, эмаль</p>
+            </div>
+          </a>
+          <a href="" class="header__search-result">
+            <div class="header__search-result-image">
+              <img src="../assets/images/search-result-product.webp" alt="Изображение товара" width="50" height="50" />
             </div>
             <div class="header__search-result-info">
               <h4 class="header__search-result-name">Конфетница «Десерт»</h4>
@@ -48,11 +58,11 @@
       <div class="header__actions" data-da=".header-menu__content,900,last">
         <div class="header__socials">
           <a class="header__social" href="https://t.me" aria-label="Telegram">
-            <img src="../assets/images/logos_telegram.png" alt="Иконка телеграма" aria-hidden="true" width="30"
+            <img src="../assets/images/logos_telegram.webp" alt="Иконка телеграма" aria-hidden="true" width="30"
               height="30" />
           </a>
           <a class="header__social" href="#" aria-label="Социальная сеть">
-            <img src="../assets/images/icon-purple-social.png" alt="Иконка max" aria-hidden="true" width="30"
+            <img src="../assets/images/icon-purple-social.webp" alt="Иконка max" aria-hidden="true" width="30"
               height="30" />
           </a>
         </div>
@@ -90,19 +100,19 @@
 
 <nav class="mobile-menu" data-mobile-menu>
   <a href="" class="mobile-menu__link">
-    <img src="../assets/images/icon-catalog.png" alt="Иконка" width="38" height="38">
+    <img src="../assets/images/icon-catalog.webp" alt="Иконка" width="38" height="38">
     <span>Каталог</span>
   </a>
   <a href="" class="mobile-menu__link">
-    <img src="../assets/images/icon-purple-social.png" alt="Иконка" width="38" height="38">
+    <img src="../assets/images/icon-purple-social.webp" alt="Иконка" width="38" height="38">
     <span>MAX</span>
   </a>
   <a href="" class="mobile-menu__link">
-    <img src="../assets/images/logos_telegram.png" alt="Иконка" width="38" height="38">
+    <img src="../assets/images/logos_telegram.webp" alt="Иконка" width="38" height="38">
     <span>Telegram</span>
   </a>
   <a href="tel:+71234567890" class="mobile-menu__link">
-    <img src="../assets/images/icon-phone.png" alt="Иконка" width="38" height="38">
+    <img src="../assets/images/icon-phone.webp" alt="Иконка" width="38" height="38">
     <span>Позвонить</span>
   </a>
 </nav>

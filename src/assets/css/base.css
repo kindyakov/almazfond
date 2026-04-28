@@ -218,6 +218,15 @@ h6 {
   color: var(--brand-id-white-muted);
   width: 100%;
 
+  &::placeholder {
+    color: var(--brand-id-white-tertiary);
+    transition: 0.2s ease;
+  }
+
+  &:hover::placeholder {
+    color: var(--brand-id-white-muted);
+  }
+
   &:focus {
     outline: 1px solid var(--brand-id-gold);
   }

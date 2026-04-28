@@ -4,14 +4,14 @@
 }
 
 .special-offer__wrapper {
-  background: var(--special-offer-bg, url('../../images/special-offer-bg.png')) no-repeat bottom / contain;
+  background: var(--special-offer-bg, url('../../images/special-offer-bg.webp')) no-repeat bottom / contain;
 
   @media (max-width: 1440px) {
-    background: var(--special-offer-bg-wide, url('../../images/special-offer-bg-n.png')) no-repeat bottom / contain;
+    background: var(--special-offer-bg-wide, url('../../images/special-offer-bg-n.webp')) no-repeat bottom / contain;
   }
 
   @media (max-width: 480px) {
-    background: var(--special-offer-bg-mobile, url('../../images/special-offer-bg-mobile.png')) no-repeat top / contain;
+    background: var(--special-offer-bg-mobile, url('../../images/special-offer-bg-mobile.webp')) no-repeat top / contain;
   }
 }
 

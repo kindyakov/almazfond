@@ -32,4 +32,8 @@
   &:hover {
     border-color: var(--brand-id-gold);
   }
+
+  &.selected {
+    background: var(--brand-id-gold);
+  }
 }
