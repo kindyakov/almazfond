@@ -15,7 +15,15 @@ const MODAL_VARIANTS = {
     text: 'Все изделия уникальны, если именно такого нет - <b>предложим аналог.</b>',
     submit: 'Уточнить наличие',
   },
+  'not-found': {
+    title: ['Поможем', 'найти нужное'],
+    text: 'Оставьте заявку. <b>Подскажем по каталогу</b> и быстро сориентируем по подходящим изделиям.',
+    submit: 'Получить помощь',
+  },
 };
+
+export const getModalVariantContent = (variantName) =>
+  MODAL_VARIANTS[variantName] || MODAL_VARIANTS[DEFAULT_VARIANT];
 
 export const initModal = () => {
   const dialogElements = Array.from(document.querySelectorAll('[data-modal-dialog]'));
@@ -65,7 +73,7 @@ export const initModal = () => {
   const triggerElements = document.querySelectorAll('[data-a11y-dialog-show="help-modal"]');
 
   const applyVariant = (variantName) => {
-    const variant = MODAL_VARIANTS[variantName] || MODAL_VARIANTS[DEFAULT_VARIANT];
+    const variant = getModalVariantContent(variantName);
 
     titleLines.forEach((lineElement, index) => {
       lineElement.textContent = variant.title[index] || '';

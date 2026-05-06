@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<include src="../partials/head.html" locals='{"page_title": "404 — Страница не найдена", "page_description": "Страница не найдена"}'></include>
+
+<body>
+  <div class="page">
+    <include src="../partials/sprite.html"></include>
+    <include src="../partials/header.html"></include>
+
+    <main class="main">
+      <section class="not-found">
+        <div class="not-found__container container">
+          <div class="not-found__panel">
+            <p class="not-found__eyebrow">Ошибка 404</p>
+            <div class="not-found__body">
+              <div class="not-found__content">
+                <span class="not-found__code">404</span>
+                <h1 class="not-found__title title-h1">
+                  Такой страницы <span>не существует</span>
+                </h1>
+                <p class="not-found__text">
+                  Ссылка могла устареть, страница была перенесена или адрес введён с ошибкой. Вернитесь на главную
+                  или оставьте заявку, и мы быстро сориентируем вас по каталогу.
+                </p>
+                <div class="not-found__actions">
+                  <a href="/" class="not-found__action button">Вернуться на главную</a>
+                  <button class="not-found__action button-transparent" type="button"
+                    data-a11y-dialog-show="help-modal" data-modal-variant="not-found">
+                    Получить помощь
+                  </button>
+                </div>
+              </div>
+
+              <div class="not-found__aside">
+                <p class="not-found__aside-label">Что можно сделать</p>
+                <ul class="not-found__list">
+                  <li>Вернуться на главную страницу и продолжить навигацию по сайту.</li>
+                  <li>Открыть консультацию, если нужна быстрая помощь с подбором изделия.</li>
+                  <li>Проверить адрес страницы, если переходили по сохранённой или старой ссылке.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <include src="../partials/footer.html"></include>
+  </div>
+</body>
+
+</html>
