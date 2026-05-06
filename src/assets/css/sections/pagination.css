@@ -2,7 +2,7 @@
   display: flex;
   gap: 5px;
 
-  @container (min-width: 830px) {
+  @container (min-width: 930px) {
     right: 0;
     position: absolute;
   }

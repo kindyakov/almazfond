@@ -208,7 +208,7 @@
     margin-left: 272px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 930px) {
     margin-left: 0;
   }
 
@@ -222,7 +222,7 @@
   padding-block: 5px;
   height: 48px;
 
-  @container (min-width: 830px) {
+  @container (min-width: 930px) {
     margin-inline: auto;
   }
 
