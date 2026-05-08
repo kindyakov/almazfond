@@ -20,11 +20,31 @@
 }
 
 .full-cycle__grid {
+  --full-cycle-line-color: rgba(232, 225, 214, 0.4);
+
+  position: relative;
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border-bottom: 1px solid rgba(232, 225, 214, 0.4);
-  border-top: 1px solid rgba(232, 225, 214, 0.4);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--full-cycle-line-color);
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -1px;
+  }
+
+  &::after {
+    bottom: 0;
+  }
 
   img {
     user-select: none;
@@ -43,12 +63,41 @@
 }
 
 .full-cycle__item {
+  --full-cycle-item-top-line: 0;
+  --full-cycle-item-right-line: 0;
+
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
   overflow: hidden;
   justify-content: center;
   min-height: 320px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: var(--full-cycle-line-color);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    opacity: var(--full-cycle-item-top-line);
+  }
+
+  &::after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    opacity: var(--full-cycle-item-right-line);
+  }
 
   &.col-span-2 {
     grid-column: span 2;
@@ -61,13 +110,14 @@
 
   &:nth-child(3),
   &:nth-child(4) {
-    border-right: 1px solid rgba(232, 225, 214, 0.4);
+    --full-cycle-item-right-line: 1;
+    padding-right: 24px;
   }
 
   &:nth-child(3),
   &:nth-child(4),
   &:nth-child(5) {
-    border-top: 1px solid rgba(232, 225, 214, 0.4);
+    --full-cycle-item-top-line: 1;
   }
 
   @media (max-width: 1024px) {
@@ -77,8 +127,9 @@
     }
 
     &:nth-child(3) {
-      border-right: none;
+      --full-cycle-item-right-line: 0;
       padding-left: 24px;
+      padding-right: 0;
     }
 
     &:nth-child(4) {
@@ -104,11 +155,11 @@
     }
 
     &:nth-child(4) {
-      border-right: none;
+      --full-cycle-item-right-line: 0;
     }
 
     &:nth-child(5) {
-      border-top: none;
+      --full-cycle-item-top-line: 0;
     }
 
     &:nth-child(3),
