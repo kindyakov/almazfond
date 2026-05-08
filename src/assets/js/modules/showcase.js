@@ -325,31 +325,11 @@ export const initShowcaseSlider = () => {
     suppressClickUntil: 0
   };
 
-  const handleCardClick = (event, index) => {
-    event.preventDefault();
-
-    if (dragState.suppressClickUntil > performance.now()) {
-      return;
-    }
-
-    if (!showcaseSwiper || !sliderMediaQuery.matches) {
-      return;
-    }
-
-    if (showcaseSwiper.activeIndex !== index) {
-      showcaseSwiper.slideTo(index);
-    }
-  };
-
-  cardElements.forEach((cardElement, index) => {
+  cardElements.forEach((cardElement) => {
     const cardLink = cardElement.querySelector('.showcase__card-inner');
 
     if (cardLink) {
       cardLink.setAttribute('draggable', 'false');
-
-      cardLink.addEventListener('click', (event) => {
-        handleCardClick(event, index);
-      });
     }
   });
 

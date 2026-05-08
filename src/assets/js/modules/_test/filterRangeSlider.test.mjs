@@ -160,3 +160,84 @@ test('window.filterRangeSlider notifies on user slider changes', async () => {
 
   assert.deepEqual(changes, [{ rangeId: 'price', value: [5000, 45000] }]);
 });
+
+test('window.filterRangeSlider rounds slider float values when syncing inputs', async () => {
+  const sliderElement = new FakeElement();
+  const fromInput = new FakeElement();
+  const toInput = new FakeElement();
+  const rangeElement = new FakeElement({
+    dataset: {
+      filterRange: 'price',
+      filterRangeMin: '0',
+      filterRangeMax: '1250000',
+      filterRangeStartFrom: '21000',
+      filterRangeStartTo: '1250000'
+    },
+    selectorMap: {
+      '[data-filter-range-slider]': [sliderElement],
+      '[data-filter-range-input]': [fromInput, toInput]
+    }
+  });
+
+  global.window = {
+    clearTimeout,
+    setTimeout
+  };
+  global.document = {
+    querySelector(selector) {
+      return selector === '[data-filter-range="price"]' ? rangeElement : null;
+    },
+    querySelectorAll(selector) {
+      return selector === '[data-filter-range]' ? [rangeElement] : [];
+    }
+  };
+
+  const { initFilterRangeSlider } = await importModuleWithSliderStub();
+  initFilterRangeSlider();
+
+  sliderElement.noUiSlider.trigger('update', [99999.99999999999, 1249999.9999999998]);
+
+  assert.equal(fromInput.value, '100 000');
+  assert.equal(toInput.value, '1 250 000');
+  assert.equal(fromInput.dataset.filterRangeRawValue, '100000');
+  assert.equal(toInput.dataset.filterRangeRawValue, '1250000');
+});
+
+test('window.filterRangeSlider getValue returns rounded raw slider values', async () => {
+  const sliderElement = new FakeElement();
+  const fromInput = new FakeElement();
+  const toInput = new FakeElement();
+  const rangeElement = new FakeElement({
+    dataset: {
+      filterRange: 'price',
+      filterRangeMin: '0',
+      filterRangeMax: '1250000',
+      filterRangeStartFrom: '21000',
+      filterRangeStartTo: '1250000'
+    },
+    selectorMap: {
+      '[data-filter-range-slider]': [sliderElement],
+      '[data-filter-range-input]': [fromInput, toInput]
+    }
+  });
+
+  global.window = {
+    clearTimeout,
+    setTimeout
+  };
+  global.document = {
+    querySelector(selector) {
+      return selector === '[data-filter-range="price"]' ? rangeElement : null;
+    },
+    querySelectorAll(selector) {
+      return selector === '[data-filter-range]' ? [rangeElement] : [];
+    }
+  };
+
+  const { initFilterRangeSlider } = await importModuleWithSliderStub();
+  initFilterRangeSlider();
+
+  sliderElement.noUiSlider.set([99999.99999999999, 1249999.9999999998]);
+
+  assert.deepEqual(window.filterRangeSlider.getValue('price'), [100000, 1250000]);
+});

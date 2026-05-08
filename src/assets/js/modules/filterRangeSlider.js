@@ -1,18 +1,30 @@
 import noUiSlider from 'nouislider';
 
-const RANGE_INPUT_DEBOUNCE_MS = 250;
+const RANGE_INPUT_DEBOUNCE_MS = 500;
 const DEFAULT_RANGE_ID = 'default';
 const numberFormatter = new Intl.NumberFormat('ru-RU');
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-const formatNumber = (value) =>
-  numberFormatter.format(Math.trunc(Number(value) || 0)).replace(/\u00A0/g, ' ');
+const normalizeRangeValue = (value, fallback = 0) => {
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? Math.round(value) : fallback;
+  }
 
-const parseFormattedNumber = (value, fallback) => {
-  const parsed = Number.parseInt(String(value ?? '').replace(/[^\d-]/g, ''), 10);
-  return Number.isFinite(parsed) ? parsed : fallback;
+  const normalizedValue = String(value ?? '')
+    .trim()
+    .replace(/\s+/g, '')
+    .replace(',', '.')
+    .replace(/[^\d.-]/g, '');
+  const parsed = Number.parseFloat(normalizedValue);
+
+  return Number.isFinite(parsed) ? Math.round(parsed) : fallback;
 };
+
+const formatNumber = (value) =>
+  numberFormatter.format(normalizeRangeValue(value, 0)).replace(/\u00A0/g, ' ');
+
+const parseFormattedNumber = (value, fallback) => normalizeRangeValue(value, fallback);
 
 const toNumber = (value, fallback) => {
   const parsed = Number.parseInt(String(value ?? '').trim(), 10);
@@ -49,7 +61,7 @@ const getRangeParts = (rangeId) => {
 };
 
 const renderInputValue = (input, value) => {
-  const rawValue = String(Math.trunc(Number(value) || 0));
+  const rawValue = String(normalizeRangeValue(value, 0));
   input.dataset.filterRangeRawValue = rawValue;
   input.value = formatNumber(rawValue);
 };
@@ -154,7 +166,7 @@ const initRange = (rangeElement) => {
     notifyRangeChange(rangeId, values.map((value) => parseFormattedNumber(value, 0)));
   });
 
-  const applyInputsToSlider = () => {
+  const applyInputsToSlider = ({ forceInputSync = false } = {}) => {
     const sliderValues = getCurrentSliderValues(sliderElement);
     const fromValue = fromInput.dataset.filterRangeRawValue || onlyDigits(fromInput.value);
     const toValue = toInput.dataset.filterRangeRawValue || onlyDigits(toInput.value);
@@ -172,6 +184,11 @@ const initRange = (rangeElement) => {
     if (normalizedFrom !== currentValues[0] || normalizedTo !== currentValues[1]) {
       sliderElement.noUiSlider.set([normalizedFrom, normalizedTo]);
       notifyRangeChange(rangeId, [normalizedFrom, normalizedTo]);
+      return;
+    }
+
+    if (forceInputSync) {
+      syncInputs([normalizedFrom, normalizedTo]);
     }
   };
 
@@ -196,7 +213,7 @@ const initRange = (rangeElement) => {
 
     input.addEventListener('blur', () => {
       window.clearTimeout(inputUpdateTimer);
-      applyInputsToSlider();
+      applyInputsToSlider({ forceInputSync: true });
     });
   });
 };

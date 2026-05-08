@@ -33,7 +33,6 @@ export function initSubcategoriesSlider() {
 
   new Swiper(sliderElement, {
     modules: [Navigation],
-    slidesPerView: 'auto',
     spaceBetween: 10,
     watchOverflow: true,
     navigation: {
@@ -55,11 +54,32 @@ export function initSubcategoriesSlider() {
       }
     },
     breakpoints: {
+      300: {
+        spaceBetween: 16,
+        slidesPerView: 1.6,
+      },
+      380: {
+        spaceBetween: 16,
+        slidesPerView: 2.2,
+      },
+      480: {
+        spaceBetween: 16,
+        slidesPerView: 2.6,
+      },
+      640: {
+        spaceBetween: 16,
+        slidesPerView: 3.2,
+      },
       768: {
-        spaceBetween: 16
+        spaceBetween: 16,
+        slidesPerView: 4.2,
+      },
+      900: {
+        slidesPerView: 'auto',
       },
       1200: {
-        spaceBetween: 20
+        spaceBetween: 20,
+        slidesPerView: 'auto',
       }
     }
   });
