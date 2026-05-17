@@ -67,14 +67,19 @@ const loadModule = async () => {
   return import(`data:text/javascript;charset=utf-8,${encodeURIComponent(source)}#${Date.now()}`);
 };
 
-const createDom = ({ headerClassNames = [], headerHeight = 80, scrollY = 120 } = {}) => {
+const createDom = ({
+  headerClassNames = [],
+  headerHeight = 80,
+  scrollY = 120,
+  asideTop = 200
+} = {}) => {
   const bodyElement = new FakeElement({
     offsetHeight: 200,
     rect: { height: 200 }
   });
   const asideElement = new FakeElement({
     offsetHeight: 600,
-    rect: { top: 200 - scrollY, left: 32, width: 280, height: 600 },
+    rect: { top: asideTop - scrollY, left: 32, width: 280, height: 600 },
     selectorMap: {
       '[data-aside-body]': bodyElement
     }
@@ -135,7 +140,27 @@ test('initAsideSticky offsets fixed aside below the fixed header', async () => {
 });
 
 test('initAsideSticky keeps base offset when the header is not fixed', async () => {
-  const { bodyElement } = createDom({ headerClassNames: [], headerHeight: 80, scrollY: 200 });
+  const { bodyElement } = createDom({
+    headerClassNames: [],
+    headerHeight: 80,
+    scrollY: 95,
+    asideTop: 60
+  });
+  const { initAsideSticky } = await loadModule();
+
+  initAsideSticky();
+
+  assert.equal(bodyElement.style.position, 'fixed');
+  assert.equal(bodyElement.style.top, '90px');
+});
+
+test('initAsideSticky keeps the base offset before the header threshold', async () => {
+  const { bodyElement } = createDom({
+    headerClassNames: [],
+    headerHeight: 80,
+    scrollY: 70,
+    asideTop: 60
+  });
   const { initAsideSticky } = await loadModule();
 
   initAsideSticky();

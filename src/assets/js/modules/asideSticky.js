@@ -8,17 +8,21 @@ let mobileToggleListenerAttached = false;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-const getFixedHeaderOffset = () => {
+const getFixedHeaderOffset = (scrollY) => {
   const headerElement = document.querySelector(HEADER_SELECTOR);
 
-  if (!headerElement?.classList?.contains(FIXED_HEADER_CLASS)) {
+  if (!headerElement) {
     return 0;
   }
 
-  return Math.ceil(headerElement.getBoundingClientRect().height);
+  const headerHeight = Math.ceil(headerElement.getBoundingClientRect().height);
+  const shouldAccountForHeader =
+    headerElement.classList.contains(FIXED_HEADER_CLASS) || scrollY > headerHeight;
+
+  return shouldAccountForHeader ? headerHeight : 0;
 };
 
-const getTopOffset = () => TOP_OFFSET + getFixedHeaderOffset();
+const getTopOffset = (scrollY) => TOP_OFFSET + getFixedHeaderOffset(scrollY);
 
 const clearBodyStyles = (bodyElement) => {
   bodyElement.style.position = '';
@@ -113,7 +117,7 @@ const syncAside = (instance) => {
 
   const state = measure(asideElement, bodyElement);
   const scrollY = window.scrollY;
-  const topOffset = getTopOffset();
+  const topOffset = getTopOffset(scrollY);
   const fixedStart = state.asideTop - topOffset;
   const fixedEnd = state.asideTop + state.asideHeight - state.bodyHeight - topOffset;
 
