@@ -15,6 +15,7 @@ import { initAsideSticky } from './modules/asideSticky.js';
 import { initSimilarSlider } from './modules/similarSlider.js';
 import { initContactsMaps } from './modules/contactsMap.js';
 import { initProductDescriptionToggle } from './modules/productDescriptionToggle.js';
+import { initCookieBanner } from './modules/cookieBanner.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   useDynamicAdapt();
@@ -34,4 +35,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAsideSticky();
   initSimilarSlider();
   initContactsMaps();
+  initCookieBanner();
 });

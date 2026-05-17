@@ -1,10 +1,24 @@
 const DESKTOP_MEDIA_QUERY = '(min-width: 900px)';
 const TOP_OFFSET = 10;
+const HEADER_SELECTOR = '[data-header]';
+const FIXED_HEADER_CLASS = 'header--fixed';
 const instances = [];
 let filterToggleListenerAttached = false;
 let mobileToggleListenerAttached = false;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const getFixedHeaderOffset = () => {
+  const headerElement = document.querySelector(HEADER_SELECTOR);
+
+  if (!headerElement?.classList?.contains(FIXED_HEADER_CLASS)) {
+    return 0;
+  }
+
+  return Math.ceil(headerElement.getBoundingClientRect().height);
+};
+
+const getTopOffset = () => TOP_OFFSET + getFixedHeaderOffset();
 
 const clearBodyStyles = (bodyElement) => {
   bodyElement.style.position = '';
@@ -99,8 +113,9 @@ const syncAside = (instance) => {
 
   const state = measure(asideElement, bodyElement);
   const scrollY = window.scrollY;
-  const fixedStart = state.asideTop - TOP_OFFSET;
-  const fixedEnd = state.asideTop + state.asideHeight - state.bodyHeight - TOP_OFFSET;
+  const topOffset = getTopOffset();
+  const fixedStart = state.asideTop - topOffset;
+  const fixedEnd = state.asideTop + state.asideHeight - state.bodyHeight - topOffset;
 
   if (scrollY < fixedStart) {
     instance.mode = 'normal';
@@ -115,7 +130,7 @@ const syncAside = (instance) => {
   }
 
   instance.mode = 'fixed';
-  applyFixedState(bodyElement, spacerElement, state, TOP_OFFSET);
+  applyFixedState(bodyElement, spacerElement, state, topOffset);
 };
 
 const scheduleSync = (instance) => {

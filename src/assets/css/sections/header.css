@@ -6,6 +6,22 @@
   border-bottom: 1px solid var(--brand-id-white-stroke);
 }
 
+.header.header--fixed {
+  position: fixed;
+  top: var(--wp-admin--admin-bar--height, 0px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  width: 100%;
+  transform: translateY(calc(-100% - var(--wp-admin--admin-bar--height, 0px)));
+}
+
+.header.header--fixed.header--visible {
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
 .header__content {
   width: 100%;
   display: flex;
@@ -108,7 +124,7 @@
     transition-delay: 0.1s;
 
     &.active {
-      z-index: 35;
+      z-index: 45;
       transform: translateX(0);
     }
   }

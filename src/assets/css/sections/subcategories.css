@@ -68,6 +68,10 @@
   text-transform: uppercase;
   color: var(--brand-id-white-muted);
   transition: color 0.2s ease;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 }
 
 .subcategories__list--control {

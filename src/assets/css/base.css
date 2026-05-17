@@ -82,6 +82,7 @@ h6 {
   flex: auto;
   transition: transform 0.4s ease;
   background: var(--brand-id-black);
+  padding-top: var(--header-fixed-offset, 0px);
 
   &.is-open-menu,
   &.is-open-search {
@@ -140,7 +141,7 @@ h6 {
     position: relative;
     pointer-events: none;
 
-    & > span {
+    &>span {
       opacity: 0;
       visibility: hidden;
     }
