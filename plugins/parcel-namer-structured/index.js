@@ -3,6 +3,7 @@ const { Namer } = require('@parcel/plugin');
 
 const COMMON_NAMES = new Set(['index', 'src', 'lib']);
 const JS_EXTENSIONS = new Set(['js', 'mjs', 'cjs']);
+const FONT_EXTENSIONS = new Set(['woff', 'woff2', 'ttf', 'otf', 'eot']);
 const ASSET_TYPES = new Set([
   'avif',
   'bmp',
@@ -20,11 +21,7 @@ const ASSET_TYPES = new Set([
   'ogg',
   'wav',
   'webm',
-  'woff',
-  'woff2',
-  'ttf',
-  'otf',
-  'eot',
+  ...FONT_EXTENSIONS,
   'txt',
   'xml',
   'webmanifest'
@@ -74,6 +71,10 @@ function getBundleName({ bundle, mainBundle, bundleGraph, bundleGroup, entryRoot
   if (mainEntry && !bundle.needsStableName) {
     const entryName = basenameWithoutExtension(mainEntry.filePath) || 'bundle';
     if (mainEntry.filePath.includes(`${path.sep}src${path.sep}assets${path.sep}`)) {
+      if (FONT_EXTENSIONS.has(bundle.type)) {
+        return entryName.replace(/\\/g, '/');
+      }
+
       if (options.mode === 'development') {
         return entryName.replace(/\\/g, '/');
       }
@@ -165,6 +166,18 @@ function getOutputFolder(extension, distDir) {
     }
 
     return 'js';
+  }
+
+  if (FONT_EXTENSIONS.has(extension)) {
+    if (distLeaf === 'css' || distLeaf === 'js') {
+      return '../assets/fonts';
+    }
+
+    if (distLeaf === 'assets') {
+      return 'fonts';
+    }
+
+    return 'assets/fonts';
   }
 
   if (ASSET_TYPES.has(extension)) {

@@ -36,6 +36,10 @@ const args = [
   '--no-source-maps'
 ];
 
+if (mode === 'build') {
+  args.push('--no-cache');
+}
+
 if (mode === 'watch') {
   args.push('--no-content-hash', '--no-hmr');
 }

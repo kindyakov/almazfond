@@ -70,7 +70,7 @@
   transition: color 0.2s ease;
 
   @media (max-width: 480px) {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
