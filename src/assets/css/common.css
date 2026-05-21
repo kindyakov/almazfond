@@ -154,6 +154,7 @@
     &.open {
       opacity: 1;
       visibility: visible;
+      z-index: 10;
     }
   }
 }
